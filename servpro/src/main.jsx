@@ -1,9 +1,22 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import Login from '../../servpro/src/pages/Login/Login.jsx'; 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Login from './pages/Login/Login'; 
+import Menu from './components/Menu/Sidebar'; 
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Login />
-  </StrictMode>
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Login />, 
+  },
+  {
+    path: '/menu',
+    element: <Menu />, 
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} /> 
+  </React.StrictMode>
 );
