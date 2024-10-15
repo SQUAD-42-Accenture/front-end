@@ -3,6 +3,8 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import { Edit, Delete } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/PersonAdd';
+import { Link } from 'react-router-dom';
+
 
 const clients = [
   { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
@@ -47,13 +49,15 @@ function ListagemClientes() {
               marginRight: '500px' 
             }}
           />
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<AddIcon />}
-          >
-            Cadastrar Novo Cliente
-          </Button>
+        <Link to="/cadastrocliente">
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<AddIcon />}
+            >
+              Cadastrar Novo Cliente
+            </Button>
+          </Link>
         </div>
       </div>
       
