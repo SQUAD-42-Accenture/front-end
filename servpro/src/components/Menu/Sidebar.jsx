@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './styles.css';
 import logo from '../../assets/LogoServPro.png';
 import MenuList from './MenuList';
+import ListarCliente from '../../pages/ListagemClientes/ListarCliente'; 
+
 import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from 'react-icons/ai'; 
 
 function Sidebar() {
@@ -29,7 +31,8 @@ function Sidebar() {
                     </div>
                 </header>
                 <main className="content">
-                    {/* Aqui vai o conteúdo das páginas */}
+                <ListarCliente /> 
+
                 </main>
             </div>
         </div>
@@ -37,3 +40,4 @@ function Sidebar() {
 }
 
 export default Sidebar;
+

@@ -2,10 +2,9 @@
 
 #body-listagem{
     height: 100vh;
-    background-color: #efefef;
+    background-color: #f7f7f7;
 }
 
-/* ajustar body-busca!! */
 #body-busca{
     background-color: #ffff;
     padding: 15px;
