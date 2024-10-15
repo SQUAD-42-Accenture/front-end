@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './pages/Login/Login'; 
 import Menu from './components/Menu/Sidebar'; 
 import ListarCliente from './pages/ListagemClientes/ListarCliente';
+import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
+
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: '/listarcliente',
     element: <ListarCliente />, 
+  },
+  {
+    path: '/listartecnico',
+    element: <ListarTecnico />, 
   },
 ]);
 
