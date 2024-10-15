@@ -1,40 +1,39 @@
-import React, { useState } from 'react';
-import { Layout } from 'antd';
+import React, { useState } from 'react'; 
 import './styles.css';
 import logo from '../../assets/LogoServPro.png';
 import MenuList from './MenuList';
-import { AiOutlineMenu } from 'react-icons/ai'; 
+import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from 'react-icons/ai'; 
 
-const { Header, Sider, Content } = Layout;
+function Sidebar() {
+    const [collapsed, setCollapsed] = useState(false);
 
-function Menu() {
-    const [collapsed, setCollapsed] = useState(false); 
     const toggleSidebar = () => {
-        setCollapsed(!collapsed); 
+        setCollapsed(!collapsed);
     };
 
     return (
-        <Layout>
-            <Sider
-                collapsible
-                collapsed={collapsed}
-                trigger={null}
-                className="sidebar"
-                width={250}
-                style={{ height: '100vh' }} 
-            >
+        <div className="layout">
+            <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
                 <div className="logo-container">
-                    <AiOutlineMenu className="menu-icon" onClick={toggleSidebar} />
-                    {!collapsed && <img src={logo} alt="Logo" className="logo" />} 
+                    <AiOutlineMenu className="menu-icon hamburger-icon" onClick={toggleSidebar} /> 
+                    {!collapsed && <img src={logo} alt="Logo" className="logo" />}
                 </div>
-                <MenuList />
-            </Sider>
-            <Layout>
-                <Header className="header">Header</Header>
-                <Content className="content">Content</Content>
-            </Layout>
-        </Layout>
+                <MenuList collapsed={collapsed} />
+            </aside>
+            <div className="main-layout">
+                <header className="header">
+                    <div className="header-icons">
+                        <AiOutlineBell className="header-icon" />
+                        <AiOutlineQuestionCircle className="header-icon" />
+                        <AiOutlineUser className="header-icon" />
+                    </div>
+                </header>
+                <main className="content">
+                    {/* Aqui vai o conteúdo das páginas */}
+                </main>
+            </div>
+        </div>
     );
 }
 
-export default Menu;
+export default Sidebar;

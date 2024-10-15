@@ -1,60 +1,156 @@
-.sidebar {
-    background-color: #0E4088;
-    height: 100vh; 
+.layout {
     display: flex;
-    flex-direction: column; 
+    height: 100vh;
+    width: 100%;
+}
+  
+.sidebar {
+    width: 250px;
+    background-color: #0E4088;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 80px; 
 }
 
 .logo-container {
     display: flex;
-    justify-content: start; 
-    align-items: center; 
-    height: 100px; 
-    padding: 0 20px; 
+    align-items: center;
+    justify-content: flex-start; 
+    height: 100px;
+    padding: 0 20px;
 }
-
 
 .logo {
-    max-width: 100%; 
+    max-width: 85%;
     height: auto;
-}
+    margin-left: -10px;
 
-.header {
-    background-color: #0E4088;
-    color: #fff;
-    padding: 0 30px; 
-    display: flex;
-    align-items: center;
-    height: 70px; 
-    justify-content: space-between; 
 }
 
 .menu-icon {
+    color: #ffffff; 
+    font-size: 28px; 
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.hamburger-icon {
+    color: #ffffff; 
+    font-size: 28px; 
+    cursor: pointer;
+    margin-right: 15px;
+    margin-top: -20px; 
+}
+
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0; 
+    width: 100%;
     color: #ffffff;
-    margin-left: 15px; 
-    width: 50px; 
-    height: 50px; 
-    cursor: pointer; 
+}
+
+.menu-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-.ant-menu-item {
-    width: 50px;
-    height: 50px; 
-
-}
-.ant-menu {
-    margin-top: 30px; 
+    padding: 20px 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px; 
+    position: relative;
+    margin-bottom: 10px; 
 }
 
-.ant-menu-item {
-    padding: 15px 20px; 
-    font-size: 16px; 
+
+.menu-item .menu-icon {
+    font-size: 28px; 
+    margin-right: 15px;
+}
+
+.menu-item:hover {
+    color: #18E3A9; 
+}
+
+.menu-item.active {
+    color: #18E3A9; 
+}
+
+.menu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%; 
+    height: 80%;
+    width: 8px; 
+    background-color: #18E3A9;
+    border-radius: 0 10px 10px 0; 
+}
+
+
+.menu-item.active .menu-icon {
+    color: #18E3A9; 
+}
+
+.submenu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 30px;
 }
 
 .submenu-item {
-    padding: 12px 30px; 
+    padding: 10px 0;
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
+.submenu-item:hover {
+    color: #18E3A9;
+}
+
+.main-layout {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+  
+.header {
+    background-color: #0E4088;
+    color: #fff;
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+}
+  
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+  
+.header-icon {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+  
+.header-icon:hover {
+    color: #18E3A9;
+}
+  
+.content {
+    padding: 20px;
+    background-color: #f0f2f5;
+    flex-grow: 1;
+}

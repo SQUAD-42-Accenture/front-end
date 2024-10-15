@@ -1,47 +1,74 @@
 import React, { useState } from 'react';
-import { Menu } from 'antd';
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
-import { FaServicestack, FaChartLine } from 'react-icons/fa';
+import { FaChartLine } from 'react-icons/fa';
 import { BiChevronDown } from 'react-icons/bi';
+import { HiOutlineFolder } from 'react-icons/hi'; 
+import './styles.css';
 
-const MenuList = () => {
+const MenuList = ({ collapsed }) => {
     const [subMenuOpen, setSubMenuOpen] = useState(false);
+    const [activeMenuItem, setActiveMenuItem] = useState('');
 
     const toggleSubMenu = () => {
         setSubMenuOpen(!subMenuOpen);
+        setActiveMenuItem('Cadastro');
     };
 
     return (
-        <Menu
-            mode="inline"
-            style={{
-                backgroundColor: 'transparent',
-                borderRight: 'none',
-            }}
-        >
-            <Menu.Item key="1" icon={<AiOutlineHome />} className="menu-item">
-                Início
-            </Menu.Item>
-            <Menu.Item key="2" icon={<AiOutlineUser />} onClick={toggleSubMenu}>
-                Cadastro {subMenuOpen ? <BiChevronDown /> : <BiChevronDown />}
-            </Menu.Item>
-            {subMenuOpen && (
-                <>
-                    <Menu.Item key="2-1" className="submenu-item">
-                        Técnico
-                    </Menu.Item>
-                    <Menu.Item key="2-2" className="submenu-item">
+        <ul className="menu-list">
+            <li
+                className={`menu-item ${activeMenuItem === 'Início' ? 'active' : ''}`}
+                onClick={() => setActiveMenuItem('Início')}
+            >
+                <AiOutlineHome className="menu-icon" />
+                {!collapsed && <span>Início</span>}
+            </li>
+
+            <li
+                className={`menu-item ${activeMenuItem === 'Cadastro' ? 'active' : ''}`}
+                onClick={toggleSubMenu}
+            >
+                <AiOutlineUser className="menu-icon" />
+                {!collapsed && (
+                    <span>
+                        Cadastro <BiChevronDown className="chevron-icon" />
+                    </span>
+                )}
+            </li>
+
+            {subMenuOpen && !collapsed && (
+                <ul className="submenu-list">
+                    <li
+                        className="submenu-item"
+                        onClick={() => setActiveMenuItem('Cliente')}
+                    >
                         Cliente
-                    </Menu.Item>
-                </>
+                    </li>
+                    <li
+                        className="submenu-item"
+                        onClick={() => setActiveMenuItem('Técnico')}
+                    >
+                        Técnico
+                    </li>
+                </ul>
             )}
-            <Menu.Item key="3" icon={<FaServicestack />} className="menu-item">
-                Serviços
-            </Menu.Item>
-            <Menu.Item key="4" icon={<FaChartLine />} className="menu-item">
-                Dashboard
-            </Menu.Item>
-        </Menu>
+
+            <li
+                className={`menu-item ${activeMenuItem === 'Serviços' ? 'active' : ''}`}
+                onClick={() => setActiveMenuItem('Serviços')}
+            >
+                <HiOutlineFolder className="menu-icon" /> 
+                {!collapsed && <span>Serviço</span>}
+            </li>
+
+            <li
+                className={`menu-item ${activeMenuItem === 'Dashboard' ? 'active' : ''}`}
+                onClick={() => setActiveMenuItem('Dashboard')}
+            >
+                <FaChartLine className="menu-icon" />
+                {!collapsed && <span>Dashboard</span>}
+            </li>
+        </ul>
     );
 };
 
