@@ -11,14 +11,14 @@ import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } 
 
 function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
-    const [activeComponent, setActiveComponent] = useState('clientes'); // Estado para controlar o componente ativo
+    const [activeComponent, setActiveComponent] = useState('clientes'); 
 
     const toggleSidebar = () => {
         setCollapsed(!collapsed);
     };
 
     const handleMenuClick = (component) => {
-        setActiveComponent(component); // Atualiza o componente ativo
+        setActiveComponent(component); 
     };
 
     return (
@@ -28,7 +28,7 @@ function Sidebar() {
                     <AiOutlineMenu className="menu-icon hamburger-icon" onClick={toggleSidebar} /> 
                     {!collapsed && <img src={logo} alt="Logo" className="logo" />}
                 </div>
-                <MenuList collapsed={collapsed} onMenuClick={handleMenuClick} /> {/* Passa a função para o MenuList */}
+                <MenuList collapsed={collapsed} onMenuClick={handleMenuClick} /> 
             </aside>
             <div className="main-layout">
                 <header className="header">
@@ -39,9 +39,9 @@ function Sidebar() {
                     </div>
                 </header>
                 <main className="content">
-                    {activeComponent === 'clientes' && <ListarCliente />} {/* Renderiza ListarCliente */}
-                    {activeComponent === 'tecnico' && <ListagemTecnicos />} {/* Renderiza ListagemTecnicos */}
-                    {activeComponent === 'inicio' && <TelaInicial />} {/* Renderiza ListarCliente */}
+                    {activeComponent === 'clientes' && <ListarCliente />} 
+                    {activeComponent === 'tecnico' && <ListagemTecnicos />}
+                    {activeComponent === 'inicio' && <TelaInicial />} 
                 </main>
             </div>
         </div>

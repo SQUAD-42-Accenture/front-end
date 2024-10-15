@@ -8,6 +8,7 @@ import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 
 
+
 const router = createBrowserRouter([
   {
     path: '/',
