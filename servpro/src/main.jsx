@@ -5,6 +5,8 @@ import Login from './pages/Login/Login';
 import Menu from './components/Menu/Sidebar'; 
 import ListarCliente from './pages/ListagemClientes/ListarCliente';
 import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
+import TelaInicial from './pages/TelaInicial/TelaInicial';
+
 
 
 const router = createBrowserRouter([
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/listartecnico',
     element: <ListarTecnico />, 
+  },
+  {
+    path: '/telainicial',
+    element: <TelaInicial />, 
   },
 ]);
 
