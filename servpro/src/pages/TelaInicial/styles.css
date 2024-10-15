@@ -1,0 +1,66 @@
+.scrollable-section {
+    width: 400px;
+    height: 500px;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .section-title {
+    margin-top: 120px;
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #0e4088;
+    text-align: center;
+  }
+  
+  .client-block,
+  .os-block,
+  .status-block {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px 0;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0.5px solid blue;
+    margin-right: 10px;
+  }
+  
+  .client-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 0.5px solid #19d496;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .client-info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .os-block {
+    margin-bottom: 10px;
+    border: 0.5px solid #19d496;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+  }
