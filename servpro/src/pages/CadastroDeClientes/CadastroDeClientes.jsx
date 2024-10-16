@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import Menu from './components/Menu/Sidebar'; 
-
+import AddIcon from '@mui/icons-material/Add'; 
 import "./style.css";
 
 const MeuComponente = () => {
@@ -8,7 +7,6 @@ const MeuComponente = () => {
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [sexo, setSexo] = useState("");
   const [nascimento, setNascimento] = useState("");
   const [logradouro, setLogradouro] = useState("");
   const [cep, setCep] = useState("");
@@ -17,24 +15,22 @@ const MeuComponente = () => {
   const [cidade, setCidade] = useState("");
   const [complemento, setComplemento] = useState("");
   const [referencia, setReferencia] = useState("");
-  const [numeroDeSerie, setNumeroDeSerie] = useState("");
-  const [modelo, setModelo] = useState("");
-  const [marca, setMarca] = useState("");
-  const [tipoDeEquipamento, setTipoDeEquipamento] = useState("");
-  const [cor, setCor] = useState("");
-  const [dataDeAquisicao, setDataDeAquisacao] = useState("");
-  const [observacao, setObservacao] = useState("");
+
+  const [equipamentos, setEquipamentos] = useState([{ id: 1 }]); 
+
+  const adicionarEquipamento = () => {
+    setEquipamentos([...equipamentos, { id: equipamentos.length + 1 }]); 
+  };
 
   return (
     <div className="tela-cheia">
-      {/* <Menu /> */}
-
       <div className="CadastroDeClientes">
         <div className="atualizacao">
           <p className="titulocliente">Cadastro de Cliente</p>
           <p>Data de cadastro: 29/09/2024</p>
           <p>Última Atualização: 29/09/2024 </p>
         </div>
+        
         <section className="secaoDadosCliente">
           <p className="titulo-dados">Dados Cadastrais</p>
 
@@ -69,12 +65,6 @@ const MeuComponente = () => {
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
             />
-            <select value={sexo} onChange={(e) => setSexo(e.target.value)}>
-              <option value="">Sexo</option>
-              <option value="masculino">Masculino</option>
-              <option value="feminino">Feminino</option>
-              <option value="outro">Outro</option>
-            </select>
           </div>
 
           <div className="containerDadosEndereco">
@@ -122,54 +112,47 @@ const MeuComponente = () => {
             />
           </div>
         </section>
+
         <section className="secaoEquipamento">
-          <p className="tituloCadastroEquipamento">
-            Cadastro de Equipamentos
-          </p>
-          <div className="containerCadastroEquipamento">
-            <input
-              type="text"
-              placeholder="Número de série"
-              value={numeroDeSerie}
-              onChange={(e) => setNumeroDeSerie(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Modelo"
-              value={modelo}
-              onChange={(e) => setModelo(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Marca"
-              value={marca}
-              onChange={(e) => setMarca(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Tipo de Equipamento"
-              value={tipoDeEquipamento}
-              onChange={(e) => setTipoDeEquipamento(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Cor"
-              value={cor}
-              onChange={(e) => setCor(e.target.value)}
-            />
-            <input
-              type="date"
-              placeholder="Data de Aquisição"
-              value={dataDeAquisicao}
-              onChange={(e) => setDataDeAquisacao(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Observação"
-              value={observacao}
-              onChange={(e) => setObservacao(e.target.value)}
-            />
-          </div>
+          <p className="tituloCadastroEquipamento">Cadastro de Equipamentos</p>
+
+          {equipamentos.map((equipamento, index) => (
+            <div key={index} className="containerCadastroEquipamento">
+              <h3>Equipamento {equipamento.id}</h3>
+              <input
+                type="text"
+                placeholder="Número de série"
+              />
+              <input
+                type="text"
+                placeholder="Modelo"
+              />
+              <input
+                type="text"
+                placeholder="Marca"
+              />
+              <input
+                type="text"
+                placeholder="Tipo de Equipamento"
+              />
+              <input
+                type="text"
+                placeholder="Cor"
+              />
+              <input
+                type="date"
+                placeholder="Data de Aquisição"
+              />
+              <input
+                type="text"
+                placeholder="Observação"
+              />
+            </div>
+          ))}
+
+          <button onClick={adicionarEquipamento} className="botaoAdicionar">
+            <AddIcon /> 
+          </button>
         </section>
       </div>
     </div>

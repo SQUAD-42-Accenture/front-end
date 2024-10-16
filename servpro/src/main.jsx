@@ -9,7 +9,6 @@ import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 
 
-
 const router = createBrowserRouter([
   {
     path: '/',
