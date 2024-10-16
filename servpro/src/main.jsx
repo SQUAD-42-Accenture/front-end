@@ -7,6 +7,8 @@ import ListarCliente from './pages/ListagemClientes/ListarCliente';
 import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
+import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
+
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/cadastrocliente',
     element: <CadastroCliente />, 
+  },
+  {
+    path: '/cadastrotecnico',
+    element: <CadastroTecnico />, 
   }
 ]);
 
