@@ -4,7 +4,7 @@ import './styles.css';
 import logo from '../../assets/LogoServPro.png';
 import MenuList from './MenuList';
 import ListarCliente from '../../pages/ListagemClientes/ListarCliente'; 
-import ListagemTecnicos from '../../pages/ListagemTecnicos/ListarTecnico'; // Importar a listagem de técnicos
+import ListagemTecnicos from '../../pages/ListagemTecnicos/ListarTecnico'; 
 import TelaInicial from '../../pages/TelaInicial/TelaInicial'; 
 
 import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from 'react-icons/ai'; 

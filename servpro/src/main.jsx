@@ -6,7 +6,7 @@ import Menu from './components/Menu/Sidebar';
 import ListarCliente from './pages/ListagemClientes/ListarCliente';
 import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
-
+import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 
 
 const router = createBrowserRouter([
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: '/telainicial',
     element: <TelaInicial />, 
+  },
+  {
+    path: '/cadastrocliente',
+    element: <CadastroCliente />, 
   }
 ]);
 
