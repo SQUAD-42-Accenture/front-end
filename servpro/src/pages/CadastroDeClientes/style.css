@@ -4,9 +4,8 @@
     flex-direction: column;
     width: 80%;
     min-height: calc(100vh - 100px); 
-    padding-top: 100px; 
+    padding-top: 45px; 
     margin-left: 200px; 
-  
   }
   
   .CadastroDeClientes {
@@ -22,7 +21,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
     justify-content: right;
     align-items: end;
     padding-right: 10px;
@@ -41,7 +40,7 @@
     font-weight: 700;
     padding: 10px 20px;
     margin-left: 0;
-    transform: translateX(-270%);
+    transform: translateX(-260%);
   }
   
   .titulo-dados,
@@ -68,17 +67,17 @@
   
   .containerDadosCadastrais,
   .containerDadosEndereco {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px; 
+      margin-bottom: 20px;
+      padding: 19px;
+      background-color: white;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+      border-radius: 8px; 
+      margin-left: 150px; 
   }
-  
   
   .containerCadastroEquipamento {
     gap: 10px;
@@ -86,6 +85,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px; 
     padding: 20px;
+    margin-left: 150px; 
+
   }
   
   .containerCadastroEquipamento input {
@@ -104,8 +105,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px; 
-    color: #0e4088;
-    z-index: 1000; 
-  
-  }
+    position: absolute; 
+    right: 20px; 
+    bottom: 20px; 
+    color: #f2f5fa; 
+}
+
+.header2 {
+  background-color: #0e4088; 
+  height: 60px; 
+  display: flex;
+  align-items: center; 
+  padding: 0 20px;
+  color: white; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  z-index: 1000; 
+}
+
+.menu2 {
+  background-color: #0e4088; 
+  width: 200px; 
+  height: calc(100vh - 60px); 
+  position: fixed; 
+  top: 60px; 
+  left: 0; 
+  color: white; 
+}

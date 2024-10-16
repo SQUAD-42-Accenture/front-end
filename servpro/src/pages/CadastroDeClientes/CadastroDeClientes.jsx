@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import AddIcon from '@mui/icons-material/Add'; 
 import "./style.css";
 
-const MeuComponente = () => {
+const CadastroCliente = () => {
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
@@ -18,12 +18,19 @@ const MeuComponente = () => {
 
   const [equipamentos, setEquipamentos] = useState([{ id: 1 }]); 
 
+  const equipamentosRef = useRef(null);
+
   const adicionarEquipamento = () => {
-    setEquipamentos([...equipamentos, { id: equipamentos.length + 1 }]); 
+    setEquipamentos([...equipamentos, { id: equipamentos.length + 1 }]);
+    
+    equipamentosRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
     <div className="tela-cheia">
+      <header className="header2"></header>
+      <nav className="menu2"></nav>
+
       <div className="CadastroDeClientes">
         <div className="atualizacao">
           <p className="titulocliente">Cadastro de Cliente</p>
@@ -113,7 +120,7 @@ const MeuComponente = () => {
           </div>
         </section>
 
-        <section className="secaoEquipamento">
+        <section className="secaoEquipamento" ref={equipamentosRef}>
           <p className="tituloCadastroEquipamento">Cadastro de Equipamentos</p>
 
           {equipamentos.map((equipamento, index) => (
@@ -159,4 +166,4 @@ const MeuComponente = () => {
   );
 };
 
-export default MeuComponente;
+export default CadastroCliente;
