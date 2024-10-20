@@ -8,7 +8,7 @@ const MeuComponente = () => {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [nascimento, setNascimento] = useState("");
-  const [logradouro, setLogradouro] = useState("");
+  const [rua, setRua] = useState("");
   const [cep, setCep] = useState("");
   const [bairro, setBairro] = useState("");
   const [numero, setNumero] = useState("");
@@ -70,9 +70,9 @@ const MeuComponente = () => {
           <div className="containerDadosEndereco">
             <input
               type="text"
-              placeholder="Logradouro"
-              value={logradouro}
-              onChange={(e) => setLogradouro(e.target.value)}
+              placeholder="Rua"
+              value={rua}
+              onChange={(e) => setRua(e.target.value)}
             />
             <input
               type="text"
@@ -145,7 +145,7 @@ const MeuComponente = () => {
               />
               <input
                 type="text"
-                placeholder="Observação"
+                placeholder="Observação sobre o equipamento"
               />
             </div>
           ))}
