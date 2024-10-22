@@ -9,6 +9,8 @@ import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
 import EditarCliente from './pages/EditarCliente/EditarCliente';
+import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
+
 
 
 
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/editarcliente',
     element: <EditarCliente />, 
+  },
+  {
+    path: '/editartecnico',
+    element: <EditarTecnico />, 
   }
 ]);
 
