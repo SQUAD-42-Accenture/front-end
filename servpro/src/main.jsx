@@ -10,8 +10,7 @@ import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
 import EditarCliente from './pages/EditarCliente/EditarCliente';
 import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
-
-
+import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
 
 
 const router = createBrowserRouter([
@@ -50,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: '/editartecnico',
     element: <EditarTecnico />, 
+  },
+  {
+    path: '/listagemordens',
+    element: <ListagemOrdens />, 
   }
 ]);
 

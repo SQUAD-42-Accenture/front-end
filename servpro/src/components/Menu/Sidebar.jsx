@@ -6,6 +6,8 @@ import MenuList from './MenuList';
 import ListarCliente from '../../pages/ListagemClientes/ListarCliente'; 
 import ListagemTecnicos from '../../pages/ListagemTecnicos/ListarTecnico'; 
 import TelaInicial from '../../pages/TelaInicial/TelaInicial'; 
+import ListagemOrdens from '../../pages/ListagemOrdens/ListarOrdens'; 
+
 
 import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from 'react-icons/ai'; 
 
@@ -42,6 +44,8 @@ function Sidebar() {
                     {activeComponent === 'clientes' && <ListarCliente />} 
                     {activeComponent === 'tecnico' && <ListagemTecnicos />}
                     {activeComponent === 'inicio' && <TelaInicial />} 
+                    {activeComponent === 'servicos' && <ListagemOrdens />} 
+
                 </main>
             </div>
         </div>
