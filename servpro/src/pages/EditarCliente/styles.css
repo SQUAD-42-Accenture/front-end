@@ -1,0 +1,316 @@
+.tela-cheia {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-height: calc(100vh - 100px); 
+    padding-top: 45px; 
+    margin-left: 200px; 
+}
+
+.EditarCliente {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding-left: 0;
+    color: black;
+}
+
+.atualizacao {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 5px;
+    justify-content: right;
+    align-items: end;
+    padding-right: 10px;
+    background-color: white;
+    font-size: 15px;
+}
+
+.titulocliente2 {
+    background-color: #0e4088;
+    border-radius: 5px;
+    color: #f2f5fa;
+    font-size: 27px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+    padding: 10px 20px;
+    margin-left: 0;
+    transform: translateX(-260%);
+}
+
+.titulo-dados,
+.tituloCadastroEquipamento {
+    text-align: center;
+    background-color: #0e4088;
+    color: #f2f5fa;
+    font-size: 22px;
+    padding: 1px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+input,
+select {
+    background-color: #e0e0e0;
+    border: none;
+    outline: none;
+    width: 300px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.containerDadosCadastrais,
+.containerDadosEndereco {
+    margin-bottom: 20px;
+    padding: 19px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    margin-left: 150px; 
+}
+
+.containerCadastroEquipamento {
+    gap: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    padding: 20px;
+    margin-left: 150px; 
+}
+
+.containerCadastroEquipamento input {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.botaoAdicionar {
+    background-color: #0e4088;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    right: 20px; 
+    bottom: 20px; 
+    color: #f2f5fa; 
+}
+
+.header2 {
+    background-color: #0e4088; 
+    height: 60px; 
+    display: flex;
+    align-items: center; 
+    padding: 0 20px;
+    color: white; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; 
+}
+
+.menu2 {
+    background-color: #0e4088; 
+    width: 200px; 
+    height: calc(100vh - 60px); 
+    position: fixed; 
+    top: 60px; 
+    left: 0; 
+    color: white; 
+}
+
+.tela-cheia {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-height: calc(100vh - 100px);
+    padding-top: 45px;
+    margin-left: 200px;
+}
+
+.EditarCliente {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding-left: 0;
+    color: black;
+}
+
+.atualizacao {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 5px;
+    justify-content: right;
+    align-items: end;
+    padding-right: 10px;
+    background-color: white;
+    font-size: 15px;
+}
+
+.titulocliente {
+    background-color: #0e4088;
+    border-radius: 5px;
+    color: #f2f5fa;
+    font-size: 27px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+    padding: 10px 20px;
+    margin-left: 0;
+    transform: translateX(-260%);
+}
+
+.titulo-dados,
+.tituloCadastroEquipamento {
+    text-align: center;
+    background-color: #0e4088;
+    color: #f2f5fa;
+    font-size: 22px;
+    padding: 1px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+input,
+select {
+    background-color: #e0e0e0;
+    border: none;
+    outline: none;
+    width: 300px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.containerDadosCadastrais,
+.containerDadosEndereco {
+    margin-bottom: 20px;
+    padding: 19px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-left: 150px;
+}
+
+.containerCadastroEquipamento {
+    gap: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 150px; 
+}
+
+.containerCadastroEquipamento input {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.botaoAdicionar {
+    background-color: #0e4088;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #f2f5fa;
+}
+
+.header2 {
+    background-color: #0e4088;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu2 {
+    background-color: #0e4088;
+    width: 200px;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    color: white;
+}
+
+.secaoHistoricoEquipamento {
+    margin-top: 20px;
+    margin-left: 150px; 
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tabelaEquipamentos {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabelaEquipamentos th,
+.tabelaEquipamentos td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabelaEquipamentos th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.botaoCadastrarEquipamento {
+    background-color: #0e4088;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 1200px;
+}
+
+.botaoCadastrarEquipamento:hover {
+    background-color: #0056b3;
+}
+
+
