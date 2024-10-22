@@ -11,7 +11,7 @@ const MenuList = ({ collapsed, onMenuClick }) => {
 
   const toggleSubMenu = () => {
     setSubMenuOpen(!subMenuOpen);
-    setActiveMenuItem("Cadastro");
+    setActiveMenuItem(subMenuOpen ? "" : "Cadastro"); 
   };
 
   return (
@@ -39,13 +39,13 @@ const MenuList = ({ collapsed, onMenuClick }) => {
         )}
       </li>
 
-      {!collapsed && (
+      {subMenuOpen && ( 
         <ul className="submenu-list">
           <li
             className="submenu-item"
             onClick={() => {
               setActiveMenuItem("Cliente");
-              onMenuClick("clientes"); 
+              onMenuClick("clientes");
             }}
           >
             Cliente
@@ -54,7 +54,7 @@ const MenuList = ({ collapsed, onMenuClick }) => {
             className="submenu-item"
             onClick={() => {
               setActiveMenuItem("Técnico");
-              onMenuClick("tecnico"); 
+              onMenuClick("tecnico");
             }}
           >
             Técnico
@@ -66,7 +66,7 @@ const MenuList = ({ collapsed, onMenuClick }) => {
         className={`menu-item ${activeMenuItem === "Serviços" ? "active" : ""}`}
         onClick={() => {
           setActiveMenuItem("Serviços");
-          onMenuClick("servicos");
+          onMenuClick("servicos"); 
         }}
       >
         <HiOutlineFolder className="menu-icon" />
@@ -74,9 +74,7 @@ const MenuList = ({ collapsed, onMenuClick }) => {
       </li>
 
       <li
-        className={`menu-item ${
-          activeMenuItem === "Dashboard" ? "active" : ""
-        }`}
+        className={`menu-item ${activeMenuItem === "Dashboard" ? "active" : ""}`}
         onClick={() => {
           setActiveMenuItem("Dashboard");
           onMenuClick("dashboard");
