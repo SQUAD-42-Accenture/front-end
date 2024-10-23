@@ -6,14 +6,22 @@ const CadastroOrdemServico = () => {
   const [cliente, setCliente] = useState("Roberto Dutra");
   const [tecnico, setTecnico] = useState("Henrique Souza");
   const [pagamento, setPagamento] = useState("Boleto");
+  const [nascimento, setNascimento] = useState("");
+  const [logradouro, setLogradouro] = useState("");
+  const [cep, setCep] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [numero, setNumero] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [complemento, setComplemento] = useState("");
+  const [referencia, setReferencia] = useState("");
 
   const tecnicos = ["Henrique Souza", "João Silva", "Maria Oliveira"];
   const formasPagamento = ["Boleto", "Cartão de Crédito", "Pix"];
 
   return (
-    <div className="tela-cheia-os">
-      <header className="header2-os"></header>
-      <nav className="menu2-os"></nav>
+    <div className="tela-cheia">
+    <header className="header2"></header>
+    <nav className="menu2"></nav>
 
       <div className="CadastroDeOS-os">
         <div className="cabecalhoOrdem-os">
@@ -77,36 +85,90 @@ const CadastroOrdemServico = () => {
             </select>
           </div>
           <div className="inputField-os">
+            <label htmlFor="nascimento">Data de Nascimento:</label>
+            <input
+              type="date"
+              id="nascimento"
+              value={nascimento}
+              onChange={(e) => setNascimento(e.target.value)}
+            />
+          </div>
+          <div className="inputField-os">
             <label htmlFor="cep">CEP:</label>
-            <input type="text" id="cep" placeholder="Digite o CEP" />
+            <input
+              type="text"
+              id="cep"
+              placeholder="Digite o CEP"
+              value={cep}
+              onChange={(e) => setCep(e.target.value)}
+            />
           </div>
           <div className="inputField-os">
             <label htmlFor="endereco">Endereço:</label>
-            <input type="text" id="endereco" placeholder="Digite o Endereço" />
+            <input
+              type="text"
+              id="endereco"
+              placeholder="Digite o Endereço"
+              value={logradouro}
+              onChange={(e) => setLogradouro(e.target.value)}
+            />
           </div>
           <div className="inputField-os">
-            <label htmlFor="nome">Nome:</label>
-            <input type="text" id="nome" placeholder="Nome Completo" />
+            <label htmlFor="bairro">Bairro:</label>
+            <input
+              type="text"
+              id="bairro"
+              placeholder="Bairro"
+              value={bairro}
+              onChange={(e) => setBairro(e.target.value)}
+            />
           </div>
           <div className="inputField-os">
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" placeholder="Digite o Email" />
+            <label htmlFor="numero">Número:</label>
+            <input
+              type="text"
+              id="numero"
+              placeholder="Número"
+              value={numero}
+              onChange={(e) => setNumero(e.target.value)}
+            />
           </div>
           <div className="inputField-os">
-            <label htmlFor="telefone">Telefone:</label>
-            <input type="text" id="telefone" placeholder="(XX) XXXX-XXXX" />
+            <label htmlFor="cidade">Cidade:</label>
+            <input
+              type="text"
+              id="cidade"
+              placeholder="Cidade"
+              value={cidade}
+              onChange={(e) => setCidade(e.target.value)}
+            />
           </div>
           <div className="inputField-os">
-            <label htmlFor="estado">Estado:</label>
-            <input type="text" id="estado" placeholder="UF" />
+            <label htmlFor="complemento">Complemento:</label>
+            <input
+              type="text"
+              id="complemento"
+              placeholder="Complemento"
+              value={complemento}
+              onChange={(e) => setComplemento(e.target.value)}
+            />
+          </div>
+          <div className="inputField-os">
+            <label htmlFor="referencia">Ponto de Referência:</label>
+            <input
+              type="text"
+              id="referencia"
+              placeholder="Ponto de Referência"
+              value={referencia}
+              onChange={(e) => setReferencia(e.target.value)}
+            />
           </div>
         </section>
 
-        {/* Seção 2: Descrição e Equipamento */}
         <section className="descricaoEquipamento-os">
           <div className="campoDescricao-os">
             <label htmlFor="descricao">Descrição do Problema:</label>
-            <textarea id="descricao" rows={4} placeholder="Descreva o problema" />
+            <textarea id="descricao" rows={2} placeholder="Descreva o problema" />
           </div>
 
           <div className="campoEquipamento-os">
@@ -130,10 +192,10 @@ const CadastroOrdemServico = () => {
           </div>
         </section>
 
-        <div className="botoes-os">
+        {/* <div className="botoes-os">
           <button className="botaoVoltar-os">Voltar</button>
           <button className="botaoSalvar-os">Salvar</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
