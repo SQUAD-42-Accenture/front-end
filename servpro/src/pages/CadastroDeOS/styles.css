@@ -1,0 +1,200 @@
+.tela-cheia-os {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: calc(100vh - 100px);
+  padding-top: 55px;
+  margin-left: 200px;
+}
+
+.CadastroDeOS-os {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+  padding-left: 0;
+  color: black;
+}
+
+.cabecalhoOrdem-os {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campoNumeroOS-os input,
+.campoCliente-os input,
+.campoTecnico-os select,
+.campoPagamento-os select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.dadosCliente-os {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputField-os {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField-os input,
+.inputField-os select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.descricaoEquipamento-os {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campoDescricao-os textarea,
+.campoDetalhes-os textarea {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.campoEquipamento-os {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.campoEquipamento-os input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.botoes-os {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.botaoVoltar-os,
+.botaoSalvar-os {
+  background-color: #0e4088;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cabecalhoOrdem-os {
+  margin-left: 100px;
+  margin-top: 30px;
+  gap: 100px;
+}
+
+.dadosCliente-os {
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.descricaoEquipamento-os {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campoDescricao-os,
+.campoDetalhes-os {
+  display: flex;
+  flex-direction: column;
+}
+
+.campoDescricao-os textarea,
+.campoDetalhes-os textarea {
+  width: 45%;
+  height: 70px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.campoEquipamento-os {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.campoEquipamento-os input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.inputField-os {
+  width: 60%;
+}
+
+.descricaoEquipamento-os {
+    margin-left: 100px; 
+    padding: 10px
+}
+
+.campoDescricao-os,
+.campoDetalhes-os {
+    margin-bottom: 15px; 
+}
+
+.inputField-os {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.inputField-os input,
+.campoDescricao-os textarea,
+.campoDetalhes-os textarea {
+    width: 80%; 
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.campoDetalhes-os label {
+    margin-bottom: 5px; 
+    display: block;
+}
+
+.campoDetalhes-os textarea {
+    margin-top: 5px; 
+}
+
