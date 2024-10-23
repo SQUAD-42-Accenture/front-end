@@ -20,10 +20,11 @@ const CadastroOrdemServico = () => {
 
   return (
     <div className="tela-cheia">
-    <header className="header2"></header>
-    <nav className="menu2"></nav>
-
+      <header className="header2"></header>
+      <nav className="menu2"></nav>
       <div className="CadastroDeOS-os">
+        <h1 className="titulo">Ordens de Serviços</h1>
+        <div className="cabecalhoTitulo">Cadastro de Ordem de Serviço</div>
         <div className="cabecalhoOrdem-os">
           <div className="campoNumeroOS-os">
             <label htmlFor="numeroOS">Nº da OS:</label>
@@ -33,16 +34,6 @@ const CadastroOrdemServico = () => {
               value={numeroOS}
               onChange={(e) => setNumeroOS(e.target.value)}
               readOnly
-            />
-          </div>
-          <div className="campoCliente-os">
-            <label htmlFor="cliente">Cliente:</label>
-            <input
-              type="text"
-              id="cliente"
-              placeholder="Buscar Cliente"
-              value={cliente}
-              onChange={(e) => setCliente(e.target.value)}
             />
           </div>
           <div className="campoTecnico-os">
@@ -58,6 +49,16 @@ const CadastroOrdemServico = () => {
                 </option>
               ))}
             </select>
+          </div>
+          <div className="campoCliente-os">
+            <label htmlFor="cliente">Cliente:</label>
+            <input
+              type="text"
+              id="cliente"
+              placeholder="Buscar Cliente"
+              value={cliente}
+              onChange={(e) => setCliente(e.target.value)}
+            />
           </div>
           <div className="campoPagamento-os">
             <label htmlFor="pagamento">Pagamento:</label>
@@ -165,6 +166,7 @@ const CadastroOrdemServico = () => {
           </div>
         </section>
 
+        {/* 
         <section className="descricaoEquipamento-os">
           <div className="campoDescricao-os">
             <label htmlFor="descricao">Descrição do Problema:</label>
@@ -192,10 +194,11 @@ const CadastroOrdemServico = () => {
           </div>
         </section>
 
-        {/* <div className="botoes-os">
+        <div className="botoes-os">
           <button className="botaoVoltar-os">Voltar</button>
           <button className="botaoSalvar-os">Salvar</button>
-        </div> */}
+        </div>
+        */}
       </div>
     </div>
   );
