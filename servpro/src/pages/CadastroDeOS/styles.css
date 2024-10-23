@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .tela-cheia-os {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -12,20 +14,59 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   margin-left: 0;
   padding-left: 0;
   color: black;
 }
 
+.titulo{
+  margin-left: 50px;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #959292;
+}
+
+.cabecalhoTitulo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-left: 50px;
+  background-color: #0e4088;
+  font-weight: bold;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .cabecalhoOrdem-os {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-left: 50px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campoNumeroOS-os,
+.campoCliente-os,
+.campoTecnico-os,
+.campoPagamento-os {
+  display: flex;
+  align-items: center;
+}
+
+label[for="numeroOS"],
+label[for="tecnico"],
+label[for="cliente"],
+label[for="pagamento"] {
+  font-weight: bold;
+  margin-right: 20px;
+  width: 80px;
 }
 
 .campoNumeroOS-os input,
@@ -36,14 +77,18 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  max-width: 300px; 
+  opacity: 0.5;
+  flex: 1;
 }
 
-.dadosCliente-os {
+ .dadosCliente-os {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 20px;
   padding: 20px;
+  margin-left: 50px;
+  margin-top: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -59,8 +104,10 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  opacity: 0.5;
 }
 
+/*
 .descricaoEquipamento-os {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -79,6 +126,7 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  opacity: 0.5;
 }
 
 .campoEquipamento-os {
@@ -92,9 +140,10 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-}
+  opacity: 0.5;
+} */
 
-.botoes-os {
+/* .botoes-os {
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -146,6 +195,7 @@
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  opacity: 0.5;
 }
 
 .campoEquipamento-os {
@@ -159,6 +209,7 @@
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  opacity: 0.5;
 }
 
 .inputField-os {
@@ -185,9 +236,10 @@
 .campoDescricao-os textarea,
 .campoDetalhes-os textarea {
     width: 80%; 
-    padding: 8px;
+    padding: 8px; 
     border-radius: 8px;
     border: 1px solid #ccc;
+    opacity: 0.5;
 }
 .campoDetalhes-os label {
     margin-bottom: 5px; 
@@ -196,5 +248,5 @@
 
 .campoDetalhes-os textarea {
     margin-top: 5px; 
-}
+} */
 
