@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import logo from '../../assets/LogoServPro.png';
 import { FaUser, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from 'axios';
 
 const Login = () => {
   const [cpf, setCpf] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(true);
+  const [senha, setSenha] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -17,18 +17,26 @@ const Login = () => {
 
     const credentials = {
       login: cpf,
-      password: password,
+      senha: senha,
     };
 
     try {
-      const response = await axios.post('http://localhost:5238/api/Conta', credentials);
-      
-      console.log('Login successful:', response.data);
+      const response = await axios.post('http://localhost:5238/api/Conta', credentials, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      navigate('/menu'); 
+      const token = response.data.token;
+
+  
+      localStorage.setItem('token', token);
+      console.log('Login successful:', token);
+
+      navigate('/menu');
     } catch (error) {
-      console.error('Login failed:', error);
-      setError('Login failed. Please check your credentials.');
+      console.error('Login failed:', error.response || error.message);
+      setError('Login inválido. Verifique suas credenciais.');
     }
   };
 
@@ -56,8 +64,8 @@ const Login = () => {
                 className="input"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
                 required
               />
               <span
@@ -80,3 +88,5 @@ const Login = () => {
 };
 
 export default Login;
+
+
