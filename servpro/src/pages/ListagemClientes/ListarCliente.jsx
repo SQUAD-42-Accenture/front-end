@@ -35,10 +35,22 @@ function ListagemClientes() {
     setSelectedClient(null);
   };
 
-  const handleDelete = () => {
-    console.log('Cliente excluído:', selectedClient);
-    handleClose();
+  const handleDelete = async () => {
+    try {
+      if (selectedClient && selectedClient.CPF) {
+        const response = await axios.delete(`http://localhost:5238/api/Cliente/${selectedClient.CPF}`);
+        console.log('Cliente excluído com sucesso:', response.data);
+        fetchClients(); 
+        handleClose();
+      } else {
+        console.error('CPF do cliente não encontrado para exclusão.');
+      }
+    } catch (error) {
+      console.error('Erro ao excluir cliente:', error);
+    }
   };
+  
+  
 
   return (
     <div style={{ padding: '20px' }}>

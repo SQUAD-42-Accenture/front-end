@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios'; 
+import { useNavigate } from 'react-router-dom'; 
 import "./style.css";
 
 const CadastroCliente = () => {
@@ -12,20 +13,27 @@ const CadastroCliente = () => {
   const [bairro, setBairro] = useState("");
   const [cidade, setCidade] = useState("");
   const [complemento, setComplemento] = useState("");
-  const [senha, setSenha] = useState(""); 
-  const [modalOpen, setModalOpen] = useState(false); 
+  const [senha, setSenha] = useState("");
+  const [serial, setSerial] = useState("");
+  const [marca, setMarca] = useState("");
+  const [modelo, setModelo] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [cpfEquipamento, setCpfEquipamento] = useState(""); 
 
-  const handleSubmit = async (event) => {
+  const navigate = useNavigate(); 
+
+  const handleSubmitCliente = async (event) => {
     event.preventDefault();
 
     const clienteData = {
       CPF: cpf,
       Nome: nome,
-      Senha: senha, 
+      Senha: senha,
       Email: email,
       Telefone: telefone,
       TipoUsuario: "Cliente",
-      DataNascimento: new Date(nascimento).toISOString(), 
+      DataNascimento: new Date(nascimento).toISOString(),
       Bairro: bairro,
       Cidade: cidade,
       CEP: cep,
@@ -49,7 +57,7 @@ const CadastroCliente = () => {
       setBairro("");
       setCidade("");
       setComplemento("");
-      setSenha(""); 
+      setSenha("");
 
       setModalOpen(true);
 
@@ -57,6 +65,42 @@ const CadastroCliente = () => {
       console.error('Erro ao cadastrar cliente:', error);
     }
   };
+
+  const handleSubmitEquipamento = async (event) => {
+    event.preventDefault();
+  
+    const equipamentoData = {
+      Serial: serial,
+      Marca: marca,
+      Modelo: modelo,
+      Descricao: descricao,
+      ClienteCPF: cpfEquipamento,
+    };
+  
+    const token = localStorage.getItem('token');
+    console.log('Token:', token); 
+  
+    try {
+      await axios.post('http://localhost:5238/api/Equipamento', equipamentoData, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      console.log('Equipamento cadastrado com sucesso.');
+  
+      setSerial("");
+      setMarca("");
+      setModelo("");
+      setDescricao("");
+  
+      navigate("/menu");
+    } catch (error) {
+      console.error('Erro ao cadastrar equipamento:', error.response ? error.response.data : error.message);
+      
+    }
+  };
+  
 
   const handleCloseModal = () => {
     setModalOpen(false); 
@@ -72,8 +116,8 @@ const CadastroCliente = () => {
           <p className="titulocliente">Cadastro de Cliente</p>
           <p>Data de cadastro: {new Date().toLocaleDateString()}</p>
         </div>
-        
-        <form onSubmit={handleSubmit}>
+
+        <form onSubmit={handleSubmitCliente}>
           <section className="secaoDadosCliente">
             <p className="titulo-dados">Dados Cadastrais</p>
             <div className="containerDadosCadastrais">
@@ -82,7 +126,7 @@ const CadastroCliente = () => {
               <input type="date" placeholder="Data de Nascimento" value={nascimento} onChange={(e) => setNascimento(e.target.value)} />
               <input type="text" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
               <input type="text" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
-              <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} /> 
+              <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
             </div>
 
             <div className="containerDadosEndereco">
@@ -93,7 +137,22 @@ const CadastroCliente = () => {
             </div>
           </section>
 
-          <button type="submit" className="submit-button2">Salvar</button> 
+          <button type="submit" className="submit-button2">Salvar Cliente</button> 
+        </form>
+
+        <form onSubmit={handleSubmitEquipamento}>
+          <section className="secaoDadosEquipamento">
+            <p className="tituloCadastroEquipamento">Cadastro de Equipamento</p>
+            <div className="containerCadastroEquipamento">
+              <input type="text" placeholder="CPF do Cliente" value={cpfEquipamento} onChange={(e) => setCpfEquipamento(e.target.value)} /> 
+              <input type="text" placeholder="Serial" value={serial} onChange={(e) => setSerial(e.target.value)} />
+              <input type="text" placeholder="Marca" value={marca} onChange={(e) => setMarca(e.target.value)} />
+              <input type="text" placeholder="Modelo" value={modelo} onChange={(e) => setModelo(e.target.value)} />
+              <input type="text" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+            </div>
+          </section>
+
+          <button type="submit" className="submit-button2">Salvar Equipamento</button>
         </form>
 
         {modalOpen && (
@@ -111,3 +170,5 @@ const CadastroCliente = () => {
 };
 
 export default CadastroCliente;
+
+
