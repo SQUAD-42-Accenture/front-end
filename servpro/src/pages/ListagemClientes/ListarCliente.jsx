@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton, Pagination, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/PersonAdd';
-import { Link } from 'react-router-dom';
-
-const clients = [
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '987.654.321-00', name: 'João Pereira', phone: '(81) 9 8888-0000', email: 'joao@gmail.com', address: 'Avenida Central, 50 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-
-];
+import { Link, useNavigate } from 'react-router-dom';
 
 function ListagemClientes() {
+  const [clients, setClients] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
+  const navigate = useNavigate();
+
+  const fetchClients = async () => {
+    try {
+      const response = await axios.get('http://localhost:5238/api/Cliente');
+      setClients(response.data); 
+    } catch (error) {
+      console.error('Erro ao buscar clientes:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchClients();
+  }, []);
 
   const handleClickOpen = (client) => {
     setSelectedClient(client);
@@ -94,11 +99,11 @@ function ListagemClientes() {
           <TableBody>
             {clients.map((client, index) => (
               <TableRow key={index}>
-                <TableCell>{client.cpf}</TableCell>
-                <TableCell>{client.name}</TableCell>
-                <TableCell>{client.phone}</TableCell>
-                <TableCell>{client.email}</TableCell>
-                <TableCell>{client.address}</TableCell>
+                <TableCell>{client.CPF}</TableCell>
+                <TableCell>{client.Nome}</TableCell>
+                <TableCell>{client.Telefone}</TableCell>
+                <TableCell>{client.Email}</TableCell>
+                <TableCell>{client.Bairro}, {client.Cidade}</TableCell>
                 <TableCell>
                   <Link to={{ pathname: "/editarcliente", state: { client } }}>
                     <IconButton color="primary">
@@ -130,7 +135,7 @@ function ListagemClientes() {
         <DialogTitle>Confirmação de Exclusão</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Você tem certeza que deseja excluir o cliente {selectedClient?.name}?
+            Você tem certeza que deseja excluir o cliente {selectedClient?.Nome}?
           </DialogContentText>
         </DialogContent>
         <DialogActions>

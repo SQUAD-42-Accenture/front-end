@@ -6,14 +6,12 @@ import AddIcon from '@mui/icons-material/PersonAdd';
 import { Link } from 'react-router-dom';
 
 const ordensServico = [
-  { ordem: 34567, cliente: 'Maria Costa', data: '2023-10-01', equipamento: 'Máquina 1', tecnico: 'João', orcamento: 'R$ 100,00', status: 'Concluído', pdfUrl: '/path/to/pdf1.pdf' },
-  { ordem: 45678, cliente: 'Carlos Silva', data: '2023-10-03', equipamento: 'Máquina 3', tecnico: 'Maria', orcamento: 'R$ 200,00', status: 'Pendente', pdfUrl: '/path/to/pdf2.pdf' },
-  { ordem: 56789, cliente: 'Ana Clara', data: '2023-10-04', equipamento: 'Máquina 4', tecnico: 'Pedro', orcamento: 'R$ 250,00', status: 'Cancelado', pdfUrl: '/path/to/pdf3.pdf' },
-  { ordem: 67890, cliente: 'Lucas Mendes', data: '2023-10-05', equipamento: 'Máquina 5', tecnico: 'Ricardo', orcamento: 'R$ 300,00', status: 'Aberto', pdfUrl: '/path/to/pdf4.pdf' },
-  { ordem: 34567, cliente: 'Maria Costa', data: '2023-10-01', equipamento: 'Máquina 1', tecnico: 'João', orcamento: 'R$ 100,00', status: 'Concluído', pdfUrl: '/path/to/pdf1.pdf' },
-  { ordem: 56789, cliente: 'Ana Clara', data: '2023-10-04', equipamento: 'Máquina 4', tecnico: 'Pedro', orcamento: 'R$ 250,00', status: 'Cancelado', pdfUrl: '/path/to/pdf3.pdf' },
-
-
+  { ordem: 34567, cliente: 'Maria Costa', data: '2023-10-01', equipamento: 'Máquina 1', tecnico: 'João', orcamento: 'R$ 100,00', status: 'Concluído' },
+  { ordem: 45678, cliente: 'Carlos Silva', data: '2023-10-03', equipamento: 'Máquina 3', tecnico: 'Maria', orcamento: 'R$ 200,00', status: 'Pendente' },
+  { ordem: 56789, cliente: 'Ana Clara', data: '2023-10-04', equipamento: 'Máquina 4', tecnico: 'Pedro', orcamento: 'R$ 250,00', status: 'Cancelado' },
+  { ordem: 67890, cliente: 'Lucas Mendes', data: '2023-10-05', equipamento: 'Máquina 5', tecnico: 'Ricardo', orcamento: 'R$ 300,00', status: 'Aberto' },
+  { ordem: 34567, cliente: 'Maria Costa', data: '2023-10-01', equipamento: 'Máquina 1', tecnico: 'João', orcamento: 'R$ 100,00', status: 'Concluído' },
+  { ordem: 56789, cliente: 'Ana Clara', data: '2023-10-04', equipamento: 'Máquina 4', tecnico: 'Pedro', orcamento: 'R$ 250,00', status: 'Cancelado' },
 ];
 
 function ListagemOrdensServico() {
@@ -97,7 +95,7 @@ function ListagemOrdensServico() {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <IconButton color="primary" onClick={() => downloadPDF(ordem.pdfUrl)}>
+                  <IconButton color="primary" onClick={() => downloadPDF(ordem.ordem)}>
                     <Download />
                   </IconButton>
                 </TableCell>
@@ -139,8 +137,9 @@ const getStatusColor = (status) => {
   }
 };
 
-const downloadPDF = (pdfUrl) => {
-  window.open(pdfUrl, '_blank'); 
+const downloadPDF = (ordem) => {
+  const pdfUrl = `http://localhost:5238/api/OrdemDeServico/${ordem}/gerar-pdf`;
+  window.open(pdfUrl, '_blank');
 };
 
 export default ListagemOrdensServico;
