@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton, Pagination, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/PersonAdd';
-import { Link } from 'react-router-dom';
-
-const tecnicos = [
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '987.654.321-00', name: 'João Pereira', phone: '(81) 9 8888-0000', email: 'joao@gmail.com', address: 'Avenida Central, 50 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-  { cpf: '123.456.789-11', name: 'Maria Costa da Silva', phone: '(81) 9 9999-0000', email: 'teste@gmail.com', address: 'Rua Imaginária, 298 - Bairro' },
-
-];
+import { Link, useNavigate } from 'react-router-dom';
 
 function ListagemTecnicos() {
+  const [tecnicos, setTecnicos] = useState([]);
   const [open, setOpen] = useState(false);
   const [selectedTecnico, setSelectedTecnico] = useState(null);
+  const navigate = useNavigate();
+
+  const fetchTecnicos = async () => {
+    try {
+      const response = await axios.get('http://localhost:5238/api/Tecnico');
+      setTecnicos(response.data); 
+    } catch (error) {
+      console.error('Erro ao buscar técnicos:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTecnicos();
+  }, []);
 
   const handleClickOpen = (tecnico) => {
     setSelectedTecnico(tecnico);
@@ -30,9 +35,18 @@ function ListagemTecnicos() {
     setSelectedTecnico(null);
   };
 
-  const handleDelete = () => {
-    console.log('Técnico excluído:', selectedTecnico);
-    handleClose();
+  const handleDelete = async () => {
+    try {
+      if (selectedTecnico && selectedTecnico.cpf) {
+        await axios.delete(`http://localhost:5238/api/Tecnico/${selectedTecnico.cpf}`);
+        fetchTecnicos(); 
+        handleClose();
+      } else {
+        console.error('CPF do técnico não encontrado para exclusão.');
+      }
+    } catch (error) {
+      console.error('Erro ao excluir técnico:', error);
+    }
   };
 
   return (
@@ -47,7 +61,7 @@ function ListagemTecnicos() {
         marginBottom: '20px',
       }}>
         <h2 style={{ color: '#727070', marginBottom: '10px' }}>Listagem de Técnicos</h2>
-
+        
         <div style={{
           display: 'flex',
           alignItems: 'center',
