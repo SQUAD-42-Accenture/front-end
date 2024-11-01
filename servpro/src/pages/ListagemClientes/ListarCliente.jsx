@@ -14,12 +14,18 @@ function ListagemClientes() {
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get('http://localhost:5238/api/Cliente');
-      setClients(response.data); 
+        const token = localStorage.getItem('token'); // Assumindo que o token está no localStorage
+        const response = await axios.get('http://localhost:5238/api/Cliente', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        setClients(response.data); 
     } catch (error) {
-      console.error('Erro ao buscar clientes:', error);
+        console.error('Erro ao buscar clientes:', error);
     }
-  };
+};
+
 
   useEffect(() => {
     fetchClients();

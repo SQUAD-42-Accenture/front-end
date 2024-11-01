@@ -22,7 +22,8 @@ const CadastroCliente = () => {
   const [cpfEquipamento, setCpfEquipamento] = useState(""); 
 
   const navigate = useNavigate(); 
-
+  const [errors, setErrors] = useState({});
+  
   const handleSubmitCliente = async (event) => {
     event.preventDefault();
 
@@ -33,7 +34,7 @@ const CadastroCliente = () => {
       Email: email,
       Telefone: telefone,
       TipoUsuario: "Cliente",
-      DataNascimento: new Date(nascimento).toISOString(),
+      DataNascimento: nascimento?  new Date(nascimento).toISOString(): null,
       Bairro: bairro,
       Cidade: cidade,
       CEP: cep,
@@ -41,9 +42,11 @@ const CadastroCliente = () => {
     };
 
     try {
+      const token = localStorage.getItem('token');
       await axios.post('http://localhost:5238/api/Cliente', clienteData, {
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         }
       });
       console.log('Cliente cadastrado com sucesso.');
@@ -62,7 +65,13 @@ const CadastroCliente = () => {
       setModalOpen(true);
 
     } catch (error) {
-      console.error('Erro ao cadastrar cliente:', error);
+      // Captura e armazena os erros de validação
+      if (error.response && error.response.data.errors) {
+        const validationErrors = error.response.data.errors;
+        setErrors(validationErrors); // Atualiza os erros
+      } else {
+        console.error('Erro ao cadastrar cliente:', error.message);
+      }
     }
   };
 
@@ -95,11 +104,16 @@ const CadastroCliente = () => {
       setDescricao("");
   
       navigate("/menu");
-    } catch (error) {
-      console.error('Erro ao cadastrar equipamento:', error.response ? error.response.data : error.message);
-      
+  } catch (error) {
+    // Captura e armazena os erros de validação para o equipamento
+    if (error.response && error.response.data.errors) {
+      const validationErrors = error.response.data.errors;
+      setErrors(validationErrors); // Atualiza os erros específicos para o equipamento
+    } else {
+      console.error('Erro ao cadastrar equipamento:', error.message);
     }
-  };
+  }
+};
   
 
   const handleCloseModal = () => {
@@ -122,17 +136,26 @@ const CadastroCliente = () => {
             <p className="titulo-dados">Dados Cadastrais</p>
             <div className="containerDadosCadastrais">
               <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+              {errors.Nome && <p className="error-message">{errors.Nome[0]}</p>}
               <input type="text" placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+              {errors.CPF && <p className="error-message">{errors.CPF[0]}</p>}
               <input type="date" placeholder="Data de Nascimento" value={nascimento} onChange={(e) => setNascimento(e.target.value)} />
+              {errors.DataNascimento && <p className="error-message">{errors.DataNascimento[0]}</p>}
               <input type="text" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+              {errors.Email && <p className="error-message">{errors.Email[0]}</p>}
               <input type="text" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+              {errors.Telefone && <p className="error-message">{errors.Telefone[0]}</p>}
               <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
+              {errors.Senha && <p className="error-message">{errors.Senha[0]}</p>}
             </div>
 
             <div className="containerDadosEndereco">
               <input type="text" placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
+              {errors.CEP && <p className="error-message">{errors.CEP[0]}</p>}
               <input type="text" placeholder="Bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />
+              {errors.Bairro && <p className="error-message">{errors.Bairro[0]}</p>}
               <input type="text" placeholder="Cidade" value={cidade} onChange={(e) => setCidade(e.target.value)} />
+              {errors.Cidade && <p className="error-message">{errors.Cidade[0]}</p>}
               <input type="text" placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
             </div>
           </section>
@@ -145,10 +168,15 @@ const CadastroCliente = () => {
             <p className="tituloCadastroEquipamento">Cadastro de Equipamento</p>
             <div className="containerCadastroEquipamento">
               <input type="text" placeholder="CPF do Cliente" value={cpfEquipamento} onChange={(e) => setCpfEquipamento(e.target.value)} /> 
+              {errors.ClienteCPF && <p className="error-message">{errors.ClienteCPF[0]}</p>}
               <input type="text" placeholder="Serial" value={serial} onChange={(e) => setSerial(e.target.value)} />
+              {errors.Serial && <p className="error-message">{errors.Serial[0]}</p>}
               <input type="text" placeholder="Marca" value={marca} onChange={(e) => setMarca(e.target.value)} />
+              {errors.Marca && <p className="error-message">{errors.Marca[0]}</p>}
               <input type="text" placeholder="Modelo" value={modelo} onChange={(e) => setModelo(e.target.value)} />
+              {errors.Modelo && <p className="error-message">{errors.Modelo[0]}</p>}
               <input type="text" placeholder="Descrição" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+              {errors.Descricao && <p className="error-message">{errors.Descricao[0]}</p>}
             </div>
           </section>
 
