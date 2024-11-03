@@ -1,0 +1,106 @@
+/* Container principal */
+.container1 {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f7fa;
+}
+
+/* Sidebar */
+.sidebar1 {
+    width: 250px;
+    background-color: #e1e7f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.minhaconta-botao {
+    color: #fff !important;
+    background-color: #2f4a7c !important;
+    margin-bottom: 20px !important;
+    text-transform: none !important;
+    font-size: 18px !important;
+}
+
+.perfil {
+    color: #2f4a7c !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+    text-transform: none !important;
+    font-size: 18px !important
+}
+
+.alterarsenha {
+    color: #7f8c8d !important;
+    text-transform: none !important;
+    font-size: 18px !important
+}
+/* Main Content */
+.main-content1 {
+    flex: 1;
+    padding: 20px;
+}
+
+.header1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.menu-icon1 {
+    color: #2f4a7c;
+    margin-right: 10px;
+}
+
+.header-title1 {
+    color: #fff;
+    background-color: #2f4a7c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.info-basic1 {
+    margin-bottom: 20px;
+    margin-left: 34px;
+    color: #7f8c8d;
+    font-size: 18px;
+}
+
+/* Profile Section */
+.image-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100px!important ;
+    height: 100px !important;
+    background-color: #8e44ad !important;
+    font-size: 40px !important;
+    margin-left: 34px !important;
+}
+
+.image-info {
+    margin-left: 20px;
+}
+
+.choose-image-button {
+    color: #2f4a7c !important;
+    background-color: #a9bad8 !important;
+    margin-left: 34px !important;
+}
+
+.image-format {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Campos de Informação */
+.info-fields1 p {
+    color: #7f8c8d;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 34px;
+}

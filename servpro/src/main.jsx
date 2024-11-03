@@ -7,7 +7,7 @@ import ListarCliente from './pages/ListagemClientes/ListarCliente';
 import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
-
+import PerfilDoUsuario from './pages/PerfilDoUsuario/PerfilDoUsuario';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +33,12 @@ const router = createBrowserRouter([
   {
     path: '/cadastrocliente',
     element: <CadastroCliente />, 
+  },
+  {
+    path: '/perfildousuario',
+    element: <PerfilDoUsuario />, 
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
