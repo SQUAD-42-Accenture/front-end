@@ -7,6 +7,10 @@
     padding-top: 45px; 
     margin-left: 200px; 
   }
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
   
   .CadastroDeClientes {
     flex: 1;
