@@ -78,7 +78,6 @@ const CadastroOrdemServico = () => {
 
         <section className="dadosCliente-os">
           <div className="inputField-os">
-            <label htmlFor="genero">Gênero:</label>
             <select id="genero">
               <option>Masculino</option>
               <option>Feminino</option>
@@ -86,7 +85,6 @@ const CadastroOrdemServico = () => {
             </select>
           </div>
           <div className="inputField-os">
-            <label htmlFor="nascimento">Data de Nascimento:</label>
             <input
               type="date"
               id="nascimento"
@@ -95,7 +93,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="cep">CEP:</label>
             <input
               type="text"
               id="cep"
@@ -105,7 +102,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="endereco">Endereço:</label>
             <input
               type="text"
               id="endereco"
@@ -115,7 +111,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="bairro">Bairro:</label>
             <input
               type="text"
               id="bairro"
@@ -125,7 +120,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="numero">Número:</label>
             <input
               type="text"
               id="numero"
@@ -135,7 +129,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="cidade">Cidade:</label>
             <input
               type="text"
               id="cidade"
@@ -145,7 +138,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="complemento">Complemento:</label>
             <input
               type="text"
               id="complemento"
@@ -155,7 +147,6 @@ const CadastroOrdemServico = () => {
             />
           </div>
           <div className="inputField-os">
-            <label htmlFor="referencia">Ponto de Referência:</label>
             <input
               type="text"
               id="referencia"
@@ -166,39 +157,37 @@ const CadastroOrdemServico = () => {
           </div>
         </section>
 
-        {/* 
+      
         <section className="descricaoEquipamento-os">
           <div className="campoDescricao-os">
-            <label htmlFor="descricao">Descrição do Problema:</label>
+            <label htmlFor="descricao">Descrição do Problema</label>
             <textarea id="descricao" rows={2} placeholder="Descreva o problema" />
           </div>
 
           <div className="campoEquipamento-os">
             <div className="inputField-os">
-              <label htmlFor="marca">Marca:</label>
+            <label htmlFor="equipamento">Equipamento</label>
               <input type="text" id="marca" placeholder="Marca do Equipamento" />
             </div>
             <div className="inputField-os">
-              <label htmlFor="modelo">Modelo:</label>
               <input type="text" id="modelo" placeholder="Modelo do Equipamento" />
             </div>
             <div className="inputField-os">
-              <label htmlFor="serie">Série:</label>
               <input type="text" id="serie" placeholder="Série do Equipamento" />
             </div>
           </div>
 
           <div className="campoDetalhes-os">
-            <label htmlFor="detalhes">Detalhes do Equipamento:</label>
+            <label htmlFor="detalhes">Detalhes do Equipamento</label>
             <textarea id="detalhes" rows={4} placeholder="Escreva os detalhes" />
           </div>
         </section>
-
+       
         <div className="botoes-os">
           <button className="botaoVoltar-os">Voltar</button>
           <button className="botaoSalvar-os">Salvar</button>
         </div>
-        */}
+       
       </div>
     </div>
   );
