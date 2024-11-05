@@ -10,6 +10,14 @@
   margin-left: 200px;
 }
 
+.cabecalhoTitulo,
+.cabecalhoOrdem-os, 
+.descricaoEquipamento-os,
+.dadosCliente-os
+{
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .CadastroDeOS-os {
   flex: 1;
   display: flex;
@@ -38,10 +46,11 @@
   color: white;
   font-size: 1.4rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cabecalhoOrdem-os {
+.cabecalhoOrdem-os, 
+.descricaoEquipamento-os,
+.dadosCliente-os {
   display: grid;
   grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
@@ -49,7 +58,6 @@
   margin-left: 50px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .campoNumeroOS-os,
@@ -65,33 +73,14 @@ label[for="tecnico"],
 label[for="cliente"],
 label[for="pagamento"] {
   font-weight: bold;
+  color: #031837;
   margin-right: 20px;
   width: 80px;
-}
-
-.campoNumeroOS-os input,
-.campoCliente-os input,
-.campoTecnico-os select,
-.campoPagamento-os select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  max-width: 300px; 
-  opacity: 0.5;
-  flex: 1;
 }
 
  .dadosCliente-os {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-  margin-left: 50px;
-  margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .inputField-os {
@@ -99,24 +88,45 @@ label[for="pagamento"] {
   flex-direction: column;
 }
 
+.campoNumeroOS-os input,
+.campoCliente-os input,
+.campoTecnico-os select,
+.campoPagamento-os select,
 .inputField-os input,
 .inputField-os select {
+  width: 100%;
+  max-width: 280px; 
+  flex: 1;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   opacity: 0.5;
 }
 
-/*
-.descricaoEquipamento-os {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
+label[for="equipamento"],
+label[for="descricao"],
+label[for="detalhes"] {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #031837;
+  margin-right: 20px;
+  width: 80px;
+}
+
+.descricaoEquipamento-os{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
   padding: 20px;
+  margin-left: 50px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.descricaoEquipamento-os,
+.dadosCliente-os {
+  margin-top: 20px;
 }
 
 .campoDescricao-os textarea,
@@ -141,12 +151,13 @@ label[for="pagamento"] {
   border-radius: 8px;
   border: 1px solid #ccc;
   opacity: 0.5;
-} */
+}
 
-/* .botoes-os {
+.botoes-os {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: end;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .botaoVoltar-os,
@@ -159,94 +170,3 @@ label[for="pagamento"] {
   font-size: 16px;
   cursor: pointer;
 }
-
-.cabecalhoOrdem-os {
-  margin-left: 100px;
-  margin-top: 30px;
-  gap: 100px;
-}
-
-.dadosCliente-os {
-  margin-left: 100px;
-  margin-top: 30px;
-}
-
-.descricaoEquipamento-os {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.campoDescricao-os,
-.campoDetalhes-os {
-  display: flex;
-  flex-direction: column;
-}
-
-.campoDescricao-os textarea,
-.campoDetalhes-os textarea {
-  width: 45%;
-  height: 70px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  opacity: 0.5;
-}
-
-.campoEquipamento-os {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-.campoEquipamento-os input {
-  width: 100%;
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  opacity: 0.5;
-}
-
-.inputField-os {
-  width: 60%;
-}
-
-.descricaoEquipamento-os {
-    margin-left: 100px; 
-    padding: 10px
-}
-
-.campoDescricao-os,
-.campoDetalhes-os {
-    margin-bottom: 15px; 
-}
-
-.inputField-os {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-}
-
-.inputField-os input,
-.campoDescricao-os textarea,
-.campoDetalhes-os textarea {
-    width: 80%; 
-    padding: 8px; 
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    opacity: 0.5;
-}
-.campoDetalhes-os label {
-    margin-bottom: 5px; 
-    display: block;
-}
-
-.campoDetalhes-os textarea {
-    margin-top: 5px; 
-} */
-
