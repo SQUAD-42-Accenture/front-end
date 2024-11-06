@@ -14,7 +14,7 @@ function ListagemClientes() {
 
   const fetchClients = async () => {
     try {
-        const token = localStorage.getItem('token'); // Assumindo que o token está no localStorage
+        const token = localStorage.getItem('token'); 
         const response = await axios.get('http://localhost:5238/api/Cliente', {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -44,7 +44,12 @@ function ListagemClientes() {
   const handleDelete = async () => {
     try {
       if (selectedClient && selectedClient.CPF) {
-        const response = await axios.delete(`http://localhost:5238/api/Cliente/${selectedClient.CPF}`);
+        const token = localStorage.getItem('token'); 
+        const response = await axios.delete(`http://localhost:5238/api/Cliente/${selectedClient.CPF}`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         console.log('Cliente excluído com sucesso:', response.data);
         fetchClients(); 
         handleClose();
