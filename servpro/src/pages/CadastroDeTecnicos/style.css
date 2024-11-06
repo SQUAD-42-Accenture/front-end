@@ -134,3 +134,33 @@
   left: 0; 
   color: white; 
 }
+.submit-button3 {
+  background-color: #0e4088;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px; 
+  transition: background-color 0.3s;
+}
+
+.submit-button3:hover {
+  background-color: #0056b3; 
+}
+
+.cancel-button3 {
+  background-color: #ccc; 
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cancel-button3:hover {
+  background-color: #999; 
+}
