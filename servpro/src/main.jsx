@@ -8,6 +8,12 @@ import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 import PerfilDoUsuario from './pages/PerfilDoUsuario/PerfilDoUsuario';
+import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
+import EditarCliente from './pages/EditarCliente/EditarCliente';
+import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
+import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
+import CadastroOrdemServico from './pages/CadastroDeOS/CadastroOS';
+
 
 const router = createBrowserRouter([
   {
@@ -37,6 +43,25 @@ const router = createBrowserRouter([
   {
     path: '/perfildousuario',
     element: <PerfilDoUsuario />, 
+
+    path: '/cadastrotecnico',
+    element: <CadastroTecnico />, 
+  },
+  {
+    path: '/editarcliente',
+    element: <EditarCliente />, 
+  },
+  {
+    path: '/editartecnico',
+    element: <EditarTecnico />, 
+  },
+  {
+    path: '/listagemordens',
+    element: <ListagemOrdens />, 
+  },
+  {
+    path: '/cadastrarordemservico',
+    element: <CadastroOrdemServico />, 
   }
 
 ]);
