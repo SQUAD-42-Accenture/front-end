@@ -139,7 +139,7 @@ const CadastroCliente = () => {
               {errors.CPF && <p className="error-message">{errors.CPF[0]}</p>}
               <input type="date" placeholder="Data de Nascimento" value={nascimento} onChange={(e) => setNascimento(e.target.value)} />
               {errors.DataNascimento && <p className="error-message">{errors.DataNascimento[0]}</p>}
-              <input type="text" placeholder="E-mail" value={email} onC9hange={(e) => setEmail(e.target.value)} />
+              <input type="text" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
               {errors.Email && <p className="error-message">{errors.Email[0]}</p>}
               <input type="text" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
               {errors.Telefone && <p className="error-message">{errors.Telefone[0]}</p>}
