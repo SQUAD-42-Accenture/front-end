@@ -43,7 +43,8 @@ const router = createBrowserRouter([
   {
     path: '/perfildousuario',
     element: <PerfilDoUsuario />, 
-
+  },
+  {
     path: '/cadastrotecnico',
     element: <CadastroTecnico />, 
   },
