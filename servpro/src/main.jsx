@@ -12,7 +12,7 @@ import EditarCliente from './pages/EditarCliente/EditarCliente';
 import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
 import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
 import CadastroOrdemServico from './pages/CadastroDeOS/CadastroOS';
-
+import Dashboard from './pages/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: '/cadastrarordemservico',
     element: <CadastroOrdemServico />, 
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />, 
   }
 ]);
 
