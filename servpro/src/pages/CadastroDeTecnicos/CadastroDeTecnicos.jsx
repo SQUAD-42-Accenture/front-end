@@ -22,7 +22,7 @@ const CadastroTecnico = () => {
       Nome: nome,
       Email: email,
       Senha: senha,
-      TipoUsuario: "Técnico",
+      TipoUsuario: "Tecnico",
       Telefone: telefone,
       Especialidade: especialidade
     };

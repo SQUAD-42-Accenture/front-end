@@ -1,23 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton, Pagination, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TextField, Button, IconButton, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/PersonAdd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function ListagemTecnicos() {
-  const [tecnicos, setTecnicos] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [selectedTecnico, setSelectedTecnico] = useState(null);
-  const navigate = useNavigate();
+function ListagemTecnico() {
+  const [tecnicos, setTecnicos] = useState([]); 
+  const [open, setOpen] = useState(false);  
+  const [selectedTecnico, setSelectedTecnico] = useState(null);  
+  const [searchCpf, setSearchCpf] = useState('');  
 
   const fetchTecnicos = async () => {
     try {
-      const response = await axios.get('http://localhost:5238/api/Tecnico');
-      setTecnicos(response.data); 
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:5238/api/Tecnico', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setTecnicos(response.data);  
     } catch (error) {
       console.error('Erro ao buscar técnicos:', error);
+    }
+  };
+
+  const handleSearch = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`http://localhost:5238/api/Tecnico/search?cpf=${searchCpf}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setTecnicos(response.data);  
+    } catch (error) {
+      console.error('Erro ao buscar técnicos por CPF:', error);
     }
   };
 
@@ -37,9 +56,15 @@ function ListagemTecnicos() {
 
   const handleDelete = async () => {
     try {
-      if (selectedTecnico && selectedTecnico.cpf) {
-        await axios.delete(`http://localhost:5238/api/Tecnico/${selectedTecnico.cpf}`);
-        fetchTecnicos(); 
+      if (selectedTecnico && selectedTecnico.CPF) {
+        const token = localStorage.getItem('token');
+        const response = await axios.delete(`http://localhost:5238/api/Tecnico/${selectedTecnico.CPF}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log('Técnico excluído com sucesso:', response.data);
+        fetchTecnicos();  
         handleClose();
       } else {
         console.error('CPF do técnico não encontrado para exclusão.');
@@ -61,7 +86,7 @@ function ListagemTecnicos() {
         marginBottom: '20px',
       }}>
         <h2 style={{ color: '#727070', marginBottom: '10px' }}>Listagem de Técnicos</h2>
-        
+
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -70,15 +95,17 @@ function ListagemTecnicos() {
         }}>
           <TextField
             variant="outlined"
-            placeholder="CPF"
+            placeholder="Pesquisar por CPF"
             size="small"
+            value={searchCpf}
+            onChange={(e) => setSearchCpf(e.target.value)}  
             InputProps={{
               startAdornment: <SearchIcon />,
             }}
             style={{
               borderRadius: '100px',
               width: '300px',
-              marginRight: '500px'
+              marginRight: '20px'
             }}
           />
           <Link to="/cadastrotecnico">
@@ -86,6 +113,7 @@ function ListagemTecnicos() {
               variant="contained"
               color="primary"
               startIcon={<AddIcon />}
+              style={{ marginLeft: 'auto' }}
             >
               Cadastrar Novo Técnico
             </Button>
@@ -101,18 +129,16 @@ function ListagemTecnicos() {
               <TableCell>Nome</TableCell>
               <TableCell>Telefone</TableCell>
               <TableCell>E-mail</TableCell>
-              <TableCell>Endereço</TableCell>
               <TableCell>Ações</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {tecnicos.map((tecnico, index) => (
               <TableRow key={index}>
-                <TableCell>{tecnico.cpf}</TableCell>
-                <TableCell>{tecnico.name}</TableCell>
-                <TableCell>{tecnico.phone}</TableCell>
-                <TableCell>{tecnico.email}</TableCell>
-                <TableCell>{tecnico.address}</TableCell>
+                <TableCell>{tecnico.CPF}</TableCell>
+                <TableCell>{tecnico.Nome}</TableCell>
+                <TableCell>{tecnico.Telefone}</TableCell>
+                <TableCell>{tecnico.Email}</TableCell>
                 <TableCell>
                   <Link to={{ pathname: "/editartecnico", state: { tecnico } }}>
                     <IconButton color="primary">
@@ -129,23 +155,11 @@ function ListagemTecnicos() {
         </Table>
       </TableContainer>
 
-      <Pagination
-        count={10}
-        variant="outlined"
-        shape="rounded"
-        color="primary"
-        style={{
-          marginTop: '20px',
-          display: 'flex',
-          justifyContent: 'end'
-        }}
-      />
-
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Confirmação de Exclusão</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Você tem certeza que deseja excluir o técnico {selectedTecnico?.name}?
+            Você tem certeza que deseja excluir o técnico {selectedTecnico?.Nome}?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -161,4 +175,4 @@ function ListagemTecnicos() {
   );
 }
 
-export default ListagemTecnicos;
+export default ListagemTecnico;
