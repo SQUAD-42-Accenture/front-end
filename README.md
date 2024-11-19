@@ -21,7 +21,7 @@ Nossa equipe, nomeada **Afrodite**, é responsável pela estética e pela aprese
 
 | Tech Lead                          | Dev                         | Dev                           | Dev                       | Dev                          |
 |-----------------------------------|-----------------------------|-------------------------------|---------------------------|------------------------------|
-| [![Rayane-Souza](https://github.com/Rayane-Souza.png?size=100&v=4)](https://github.com/Rayane-Souza) | [![Rebeca-Alves](https://github.com/Rebeca-Alves.png?size=100&v=4)](https://github.com/Rebeca-Alves) | [![sabrinasilvax](https://github.com/sabrinasilvaxpng?size=100&v=4)](https://github.com/sabrinasilvax) | [![gabrielnotty](https://github.com/gabrielnotty.png?size=100&v=4)](https://github.com/gabrielnotty) | [![PalomaCezario](https://github.com/PalomaCezario.png?size=100&v=4)](https://github.com/PalomaCezario) |
+| [![Rayane-Souza](https://github.com/Rayane-Souza.png?size=100&v=4)](https://github.com/Rayane-Souza) | [![Rebeca-Alves](https://github.com/Rebeca-Alves.png?size=100&v=4)](https://github.com/Rebeca-Alves) | [![sabrinasilvax](https://github.com/sabrinasilvax.png?size=100&v=4)](https://github.com/sabrinasilvax) | [![gabrielnotty](https://github.com/gabrielnotty.png?size=100&v=4)](https://github.com/gabrielnotty) | [![PalomaCezario](https://github.com/PalomaCezario.png?size=100&v=4)](https://github.com/PalomaCezario) |
 | [Rayane-Souza](https://github.com/Rayane-Souza)  | [Rebeca-Alves](https://github.com/Rebeca-Alves)  | [sabrinasilvax](https://github.com/sabrinasilvax)  | [gabrielnotty](https://github.com/gabrielnotty)  | [PalomaCezario](https://github.com/PalomaCezario)  |
 
 
