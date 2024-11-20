@@ -24,11 +24,11 @@ function ListagemOrdensServico() {
     ordem.Descricao.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
- 
-  const downloadPDF = (OrdemDeServicoId) => {
-    if (OrdemDeServicoId) {
-      const pdfUrl = `http://localhost:5238/api/OrdemDeServico/${OrdemDeServicoId}/gerar-pdf`; 
-      console.log('Gerando PDF para a ordem de serviço com ID:', ordemId);
+  // Atualizando a função de download para utilizar o 'Id' corretamente
+  const downloadPDF = (ordemId) => {
+    if (ordemId) {
+      const pdfUrl = `http://localhost:5238/api/OrdemDeServico/${ordemId}/gerar-pdf`; 
+      console.log('Gerando PDF para a ordem de serviço com ID:', ordemId); // Usando ordemId corretamente
       window.open(pdfUrl, '_blank'); 
     } else {
       console.error('ID da ordem de serviço não encontrado!');
@@ -97,11 +97,11 @@ function ListagemOrdensServico() {
           </TableHead>
           <TableBody>
             {filteredOrdens.map((ordem) => (
-              <TableRow key={ordem.OrdemDeServicoId}>
-                <TableCell>{ordem.OrdemDeServicoId}</TableCell> 
+              <TableRow key={ordem.Id}> {/* Alterado de OrdemDeServicoId para Id */}
+                <TableCell>{ordem.Id}</TableCell> {/* Alterado de OrdemDeServicoId para Id */}
                 <TableCell>{ordem.ClienteCPF}</TableCell>
-                <TableCell>{new Date(ordem.dataAbertura).toLocaleDateString()}</TableCell> 
-                <TableCell>{ordem.SerialEquipamento}</TableCell> 
+                <TableCell>{new Date(ordem.dataAbertura).toLocaleDateString()}</TableCell>
+                <TableCell>{ordem.SerialEquipamento}</TableCell>
                 <TableCell>{ordem.TecnicoCPF}</TableCell>
                 <TableCell>{ordem.MetodoPagamento}</TableCell>
                 <TableCell>
@@ -117,7 +117,7 @@ function ListagemOrdensServico() {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <IconButton color="primary" onClick={() => downloadPDF(ordem.OrdemDeServicoId)}>
+                  <IconButton color="primary" onClick={() => downloadPDF(ordem.Id)}> {/* Alterado de OrdemDeServicoId para Id */}
                     <Download />
                   </IconButton>
                 </TableCell>
@@ -158,6 +158,3 @@ const getStatusColor = (status) => {
 };
 
 export default ListagemOrdensServico;
-
-
-
