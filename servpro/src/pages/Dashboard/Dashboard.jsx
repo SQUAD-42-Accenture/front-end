@@ -1,14 +1,36 @@
-import React from 'react';
+import React from "react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, Legend } from "recharts";
 import "./styles.css";
 
-
 function Dashboard() {
+  // Dados para o gráfico de barras
+  const barData = [
+    { name: "Impressora", quantidade: 200 },
+    { name: "Computador", quantidade: 150 },
+    { name: "Iphone", quantidade: 80 },
+    { name: "Tablet Lite", quantidade: 60 },
+    { name: "Notebook Samsung", quantidade: 100 },
+  ];
+
+  // Dados para o gráfico de pizza
+  const pieData = [
+    { name: "Concluídas", value: 70 },
+    { name: "Canceladas", value: 40 },
+  ];
+
+  // Cores para o gráfico de barras
+  const barColors = ["#C7417B", "#23306A", "#00FCA8", "#D8BFD8", "#9b59b6"];
+
+  // Cores para o gráfico de pizza
+  const pieColors = ["#2ecc71", "#e74c3c"];
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
         <h1>Dashboard para acompanhar seu sistema</h1>
       </header>
 
+      
       <div className="info-cards">
         <div className="info-card blue">
           <p>Clientes Novos</p>
@@ -24,29 +46,42 @@ function Dashboard() {
         </div>
       </div>
 
+      
       <div className="dashboard-charts">
-        <div className="chart product-management">
+        {/* Gráfico de Barras */}
+        <div className="chart1">
           <h3>Gestão de Produto</h3>
-          <div className="bar-chart">
-            {/* Exemplo de um gráfico em barras; use bibliotecas como Chart.js para gráficos dinâmicos */}
-            <div className="bar" style={{ height: '80%' }}>Impressora</div>
-            <div className="bar" style={{ height: '70%' }}>Computador</div>
-            <div className="bar" style={{ height: '50%' }}>Iphone</div>
-            <div className="bar" style={{ height: '40%' }}>Tablet Lite</div>
-            <div className="bar" style={{ height: '60%' }}>Notebook Samsung</div>
-          </div>
+          <BarChart width={650} height={300} data={barData}>
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="quantidade">
+              {barData.map((entry, index) => (
+                <Cell key={`bar-cell-${index}`} fill={barColors[index % barColors.length]} />
+              ))}
+            </Bar>
+          </BarChart>
         </div>
 
-        <div className="chart order-status">
+        {/* Gráfico de Pizza */}
+        <div className="chart2">
           <h3>Ordens de Serviços</h3>
-          <div className="pie-chart">
-            <div className="pie-slice green" style={{ '--percentage': '70%' }}></div>
-            <div className="pie-slice red" style={{ '--percentage': '40%' }}></div>
-            <div className="labels">
-              <span>Concluídas</span>
-              <span>Canceladas</span>
-            </div>
-          </div>
+          <PieChart width={400} height={400}>
+            <Pie
+              data={pieData}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={100}
+              label
+            >
+              {pieData.map((entry, index) => (
+                <Cell key={`pie-cell-${index}`} fill={pieColors[index % pieColors.length]} />
+              ))}
+            </Pie>
+            <Legend />
+          </PieChart>
         </div>
       </div>
     </div>
