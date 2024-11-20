@@ -47,7 +47,7 @@ function ListagemOrdensServico() {
               marginRight: '500px'
             }}
           />
-          <Link to="/cadastrarordemservico">
+          <Link to="/cadastroos">
             <Button
               variant="contained"
               color="primary"
