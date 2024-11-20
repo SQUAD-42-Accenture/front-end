@@ -108,7 +108,7 @@ function ListagemTecnico() {
               marginRight: '20px'
             }}
           />
-          <Link to="/cadastrotecnico">
+          <Link to="/tecnicocadastro">
             <Button
               variant="contained"
               color="primary"
