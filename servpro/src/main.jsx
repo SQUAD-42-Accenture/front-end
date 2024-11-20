@@ -13,7 +13,7 @@ import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
 import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
 import CadastroOrdemServico from './pages/CadastroDeOS/CadastroOS';
 import Menu2 from './pages/CadastroDeOS/Sidebar1';
-
+import Menu3 from './pages/CadastroDeTecnicos/Sidebar2';
 
 
 const router = createBrowserRouter([
@@ -64,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: '/cadastroos',
     element: <Menu2 />, 
+  },
+  {
+    path: '/tecnicocadastro',
+    element: <Menu3 />, 
   }
 ]);
 
