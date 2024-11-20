@@ -1,49 +1,26 @@
 import React, { useState, useEffect } from "react";
-import "./styles.css";  
+import "./styles.css";
 
 const CadastroOrdemServico = () => {
-  const [numeroOS, setNumeroOS] = useState(""); 
   const [clienteCPF, setClienteCPF] = useState(""); 
   const [tecnicoCPF, setTecnicoCPF] = useState("");  
-  const [cliente, setCliente] = useState(null); 
-  const [tecnico, setTecnico] = useState(null); 
-  const [pagamento, setPagamento] = useState("");
-  const [status, setStatus] = useState("");
-  const [serialEquipamento, setSerialEquipamento] = useState(""); 
   const [descricao, setDescricao] = useState("");
-  const [servicosProdutos, setServicosProdutos] = useState([]); 
-  const [dataAbertura, setDataAbertura] = useState(""); 
-  const [dataConclusao, setDataConclusao] = useState(""); 
+  const [pagamento, setPagamento] = useState("");
+  const [serialEquipamento, setSerialEquipamento] = useState(""); 
+  const [status, setStatus] = useState("Pendente");
+  const [dataAbertura, setDataAbertura] = useState("");
+  const [servicosProdutos, setServicosProdutos] = useState([{ ServicoId: 1, ProdutoId: 1, OrdemDeServicoId: 0 }]);
 
   const formasPagamento = ["Boleto", "Cartão de Crédito", "Pix", "Transferência"];
   const statusOpcoes = ["Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta"];
 
-  const buscarClientePorCPF = async (cpf) => {
-    try {
-      const response = await fetch(`http://localhost:5238/api/Cliente/${cpf}`);
-      if (!response.ok) throw new Error("Erro ao buscar cliente");
-      const data = await response.json();
-      setCliente(data);  
-    } catch (error) {
-      console.error("Erro ao buscar cliente:", error);
-      setCliente(null);
-    }
-  };
-
-  const buscarTecnicoPorCPF = async (cpf) => {
-    try {
-      const response = await fetch(`http://localhost:5238/api/Tecnico/${cpf}`);
-      if (!response.ok) throw new Error("Erro ao buscar técnico");
-      const data = await response.json();
-      setTecnico(data); 
-    } catch (error) {
-      console.error("Erro ao buscar técnico:", error);
-      setTecnico(null); 
-    }
-  };
+  useEffect(() => {
+    const now = new Date();
+    setDataAbertura(now);
+  }, []);
 
   const adicionarServicoProduto = () => {
-    setServicosProdutos([...servicosProdutos, { ServicoId: 0, ProdutoId: 0, CustoProdutoNoServico: 0 }]);
+    setServicosProdutos([...servicosProdutos, { ServicoId: 0, ProdutoId: 0, OrdemDeServicoId: 0 }]);
   };
 
   const removerServicoProduto = (index) => {
@@ -63,27 +40,26 @@ const CadastroOrdemServico = () => {
       return;
     }
 
-    const metodosPermitidos = ["Boleto", "Cartão de Crédito", "Pix", "Transferência"];
-    if (!metodosPermitidos.includes(pagamento)) {
-      alert("Método de pagamento inválido.");
-      return;
-    }
-
-   
     const ordemServicoData = {
-      dataAbertura: dataAbertura,
-      dataConclusao: dataConclusao,
-      Descricao: descricao,
-      MetodoPagamento: pagamento,
-      ValorTotal: 0, 
+      Descricao: descricao || "Descrição padrão", 
+      MetodoPagamento: pagamento || "Pix", 
       ClienteCPF: clienteCPF,
-      SerialEquipamento: serialEquipamento,
+      SerialEquipamento: serialEquipamento || "Serial Padrão",
       TecnicoCPF: tecnicoCPF,
-      Status: status,
-      ServicoProdutos: servicosProdutos,
+      Status: status || "Pendente", 
+      DataAbertura: dataAbertura ? dataAbertura.toISOString() : new Date().toISOString(), 
+      DataConclusao: null, 
+      ValorTotal: 0, 
+      ServicoProdutos: servicosProdutos.map(sp => ({
+        ServicoId: sp.ServicoId || 1, 
+        ProdutoId: sp.ProdutoId || 1, 
+        OrdemDeServicoId: sp.OrdemDeServicoId || 0, 
+      })),
     };
 
-   
+    console.log("Dados da requisição:", JSON.stringify(ordemServicoData, null, 2));
+
+    // Enviar para a API a requisição
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -96,12 +72,13 @@ const CadastroOrdemServico = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`, 
+          "Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify(ordemServicoData),
       });
 
       if (!response.ok) throw new Error("Erro ao criar ordem de serviço");
+
       const data = await response.json();
       console.log("Ordem de serviço criada com sucesso:", data);
       alert("Ordem de serviço criada com sucesso!");
@@ -125,28 +102,22 @@ const CadastroOrdemServico = () => {
                 type="text"
                 id="cpfCliente"
                 value={clienteCPF}
-                onChange={(e) => {
-                  setClienteCPF(e.target.value);
-                  buscarClientePorCPF(e.target.value); 
-                }}
+                onChange={(e) => setClienteCPF(e.target.value)}
                 placeholder="Digite o CPF do Cliente"
               />
-              {cliente && <p>{`Cliente encontrado: ${cliente.Nome}`}</p>}
             </div>
+
             <div className="campoCpf-os">
               <label htmlFor="cpfTecnico">CPF do Técnico:</label>
               <input
                 type="text"
                 id="cpfTecnico"
                 value={tecnicoCPF}
-                onChange={(e) => {
-                  setTecnicoCPF(e.target.value);
-                  buscarTecnicoPorCPF(e.target.value); 
-                }}
+                onChange={(e) => setTecnicoCPF(e.target.value)}
                 placeholder="Digite o CPF do Técnico"
               />
-              {tecnico && <p>{`Técnico encontrado: ${tecnico.Nome}`}</p>}
             </div>
+
             <div className="campoCpf-os">
               <label htmlFor="pagamento">Pagamento:</label>
               <select
@@ -201,19 +172,10 @@ const CadastroOrdemServico = () => {
             <div className="inputField-os">
               <label htmlFor="dataAbertura">Data de Abertura:</label>
               <input
-                type="date"
+                type="datetime-local"
                 id="dataAbertura"
-                value={dataAbertura}
-                onChange={(e) => setDataAbertura(e.target.value)}
-              />
-            </div>
-            <div className="inputField-os">
-              <label htmlFor="dataConclusao">Data de Conclusão:</label>
-              <input
-                type="date"
-                id="dataConclusao"
-                value={dataConclusao}
-                onChange={(e) => setDataConclusao(e.target.value)}
+                value={dataAbertura ? dataAbertura.toISOString().slice(0, 16) : ""}
+                readOnly
               />
             </div>
           </section>
@@ -227,7 +189,7 @@ const CadastroOrdemServico = () => {
                   value={sp.ServicoId}
                   onChange={(e) => {
                     const newServicosProdutos = [...servicosProdutos];
-                    newServicosProdutos[index].ServicoId = e.target.value;
+                    newServicosProdutos[index].ServicoId = parseInt(e.target.value);
                     setServicosProdutos(newServicosProdutos);
                   }}
                   placeholder="ID do Serviço"
@@ -237,20 +199,10 @@ const CadastroOrdemServico = () => {
                   value={sp.ProdutoId}
                   onChange={(e) => {
                     const newServicosProdutos = [...servicosProdutos];
-                    newServicosProdutos[index].ProdutoId = e.target.value;
+                    newServicosProdutos[index].ProdutoId = parseInt(e.target.value);
                     setServicosProdutos(newServicosProdutos);
                   }}
                   placeholder="ID do Produto"
-                />
-                <input
-                  type="number"
-                  value={sp.CustoProdutoNoServico}
-                  onChange={(e) => {
-                    const newServicosProdutos = [...servicosProdutos];
-                    newServicosProdutos[index].CustoProdutoNoServico = e.target.value;
-                    setServicosProdutos(newServicosProdutos);
-                  }}
-                  placeholder="Custo do Produto"
                 />
                 <button type="button" onClick={() => removerServicoProduto(index)}>Remover</button>
               </div>
@@ -266,4 +218,3 @@ const CadastroOrdemServico = () => {
 };
 
 export default CadastroOrdemServico;
-
