@@ -1,1 +1,12 @@
-{"projectId":"prj_FYuASN8fTYeWLe9pGSn0LvYJ1z11","orgId":"team_beadTGnYJvcgstRwZmeS0D3o"}
+
+{
+    "projectId": "prj_FYuASN8fTYeWLe9pGSn0LvYJ1z11",
+    "orgId": "team_beadTGnYJvcgstRwZmeS0D3o",
+    "rewrites": [
+      {
+        "source": "/:path*",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  
