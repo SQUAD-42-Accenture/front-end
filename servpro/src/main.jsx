@@ -14,6 +14,7 @@ import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
 import CadastroOrdemServico from './pages/CadastroDeOS/CadastroOS';
 import Menu2 from './pages/CadastroDeOS/Sidebar1';
 import Menu3 from './pages/CadastroDeTecnicos/Sidebar2';
+import Menu4 from './pages/CadastroDeClientes/Sidebar3';
 
 
 const router = createBrowserRouter([
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: '/tecnicocadastro',
     element: <Menu3 />, 
+  },
+  {
+    path: '/clientecadastro',
+    element: <Menu4 />, 
   }
 ]);
 

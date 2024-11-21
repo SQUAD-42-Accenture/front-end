@@ -203,3 +203,66 @@
 .modal-content button:hover {
   background-color: #0056b3; 
 }
+
+input#nascimento.inputnascimento{
+  width: 400px;  
+}
+
+input#senha.inputsenha{
+  width: 400px;  
+}
+
+input#email.inputemail{
+  width: 400px;  
+}
+
+.tela-cheia-osss {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: calc(100vh - 100px);
+  margin-left: 80px;
+  height: 10px;
+  
+  /* margin-top: 4px; */
+}
+
+.CadastroDeOS-osss {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 20px; */
+  margin-left: 0;
+  padding-left: 0;
+  color: #073575;
+  font-weight: bold;
+}
+
+.cabecalhoOrdem-osss {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;  
+  padding: 15px;
+  margin-left: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.219);
+  /* margin-top: 4px; */
+  /* height: 50%; */
+}
+
+
+.cabecalhoTituloo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px; 
+  margin-left: 50px;
+  background-color: #0e4088;
+  font-weight: bold;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.048);
+}

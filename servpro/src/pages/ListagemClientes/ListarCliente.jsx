@@ -95,7 +95,7 @@ function ListagemClientes() {
               marginRight: '500px'
             }}
           />
-          <Link to="/cadastrocliente">
+          <Link to="/clientecadastro">
             <Button
               variant="contained"
               color="primary"
