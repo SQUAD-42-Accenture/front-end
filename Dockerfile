@@ -12,7 +12,7 @@ RUN npm run build
 
 FROM nginx:alpine
 
-# Copiar os arquivos gerados pela build para o diretório de publicações do Nginx
+# Copiar os arquivos gerados pela build para o diretório de publicações do  Nginx 
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expor a porta 80 (padrão para o Nginx)
