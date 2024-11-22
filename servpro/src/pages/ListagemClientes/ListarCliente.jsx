@@ -15,7 +15,7 @@ function ListagemClientes() {
   const fetchClients = async () => {
     try {
         const token = localStorage.getItem('token'); 
-        const response = await axios.get('http://localhost:5238/api/Cliente', {
+        const response = await axios.get('https://servpro.onrender.com/api/Cliente', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -45,7 +45,7 @@ function ListagemClientes() {
     try {
       if (selectedClient && selectedClient.CPF) {
         const token = localStorage.getItem('token'); 
-        const response = await axios.delete(`http://localhost:5238/api/Cliente/${selectedClient.CPF}`,{
+        const response = await axios.delete(`https://servpro.onrender.com/api/Cliente/${selectedClient.CPF}`,{
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -15,7 +15,7 @@ function ListagemTecnico() {
   const fetchTecnicos = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5238/api/Tecnico', {
+      const response = await axios.get('https://servpro.onrender.com/api/Tecnico', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +29,7 @@ function ListagemTecnico() {
   const handleSearch = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5238/api/Tecnico/search?cpf=${searchCpf}`, {
+      const response = await axios.get(`https://servpro.onrender.com/api/Tecnico/search?cpf=${searchCpf}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +58,7 @@ function ListagemTecnico() {
     try {
       if (selectedTecnico && selectedTecnico.CPF) {
         const token = localStorage.getItem('token');
-        const response = await axios.delete(`http://localhost:5238/api/Tecnico/${selectedTecnico.CPF}`, {
+        const response = await axios.delete(`https://servpro.onrender.com/api/Tecnico/${selectedTecnico.CPF}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
