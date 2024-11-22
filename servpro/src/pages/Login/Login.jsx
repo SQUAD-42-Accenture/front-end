@@ -32,16 +32,22 @@ const Login = () => {
       localStorage.setItem('token', token);
       console.log('Login successful:', token);
 
+      // Verifica se o token foi armazenado corretamente
+      const storedToken = localStorage.getItem('token');
+      console.log('Token armazenado:', storedToken);
+
       // Solicita dados do usuário após login com o token
       const userResponse = await axios.get(`https://servpro.onrender.com/api/Usuarios?cpf=${cpf}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${storedToken}`,
         },
       });
 
+      console.log('Resposta do usuário:', userResponse);  // Verificando a resposta da API
+
       const perfil = userResponse.data.TipoUsuario;
 
-      // Navega conforme o perfil do usuário
+      // Verifica o perfil do usuário para redirecionar
       if (perfil === 'Administrador') {
         navigate('/menu');
       } else if (perfil === 'Tecnico') {
