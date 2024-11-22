@@ -62,7 +62,7 @@ const CadastroOrdemServico = () => {
     }
 
     try {
-      const response = await fetch("https://servpro.onrender.com/api/OrdemDeServico",{
+      const response = await fetch("https://servpro.onrender.com/api/OrdemDeServico" ,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
