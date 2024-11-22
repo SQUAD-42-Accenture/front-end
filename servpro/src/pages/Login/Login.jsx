@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import logo from '../../assets/LogoServPro.png';
@@ -21,19 +21,36 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
+      // Envia as credenciais para o login
+      const loginResponse = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      const token = response.data.token;
-
-  
+      const token = loginResponse.data.token;
       localStorage.setItem('token', token);
       console.log('Login successful:', token);
 
-      navigate('/menu');
+      // Solicita dados do usuário após login com o token
+      const userResponse = await axios.get(`https://servpro.onrender.com/api/Usuarios?cpf=${cpf}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const perfil = userResponse.data.TipoUsuario;
+
+      // Navega conforme o perfil do usuário
+      if (perfil === 'Administrador') {
+        navigate('/menu');
+      } else if (perfil === 'Tecnico') {
+        navigate('/tecnicolista');
+      } else if (perfil === 'Cliente') {
+        navigate('/cliente-dashboard');
+      } else {
+        setError('Perfil inválido. Contate o administrador do sistema.');
+      }
     } catch (error) {
       console.error('Login failed:', error.response || error.message);
       setError('Login inválido. Verifique suas credenciais.');
@@ -88,5 +105,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
