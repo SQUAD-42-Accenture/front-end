@@ -1,4 +1,3 @@
-# Etapa de build para o front-end React
 FROM node:20 AS build
 
 WORKDIR /app
@@ -7,19 +6,17 @@ COPY servpro/package*.json ./
 
 RUN npm install
 
-# Copiar o código do projeto
-COPY . .
+COPY servpro/ .
 
 RUN npm run build
 
-# Etapa de produção usando o Nginx
 FROM nginx:alpine
 
+# Copiar os arquivos gerados pela build para o diretório de publicações do Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-ENV PORT 5000
+# Expor a porta 80 (padrão para o Nginx)
+EXPOSE 80
 
-EXPOSE ${PORT}
-
-# Configurar o Nginx para escutar na porta configurada
-CMD ["nginx", "-g", "daemon off;", "-p", "${PORT}"]
+# Comando para manter o Nginx rodando
+CMD ["nginx", "-g", "daemon off;"]
