@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from 'axios'; 
-import { useNavigate } from 'react-router-dom'; 
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const CadastroCliente = () => {
@@ -14,14 +14,14 @@ const CadastroCliente = () => {
   const [cidade, setCidade] = useState("");
   const [complemento, setComplemento] = useState("");
   const [senha, setSenha] = useState("");
-  const [cpfEquipamento, setCpfEquipamento] = useState(""); 
+  const [cpfEquipamento, setCpfEquipamento] = useState("");
   const [serial, setSerial] = useState("");
   const [marca, setMarca] = useState("");
   const [modelo, setModelo] = useState("");
   const [descricao, setDescricao] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmitCliente = async (event) => {
     event.preventDefault();
@@ -37,19 +37,22 @@ const CadastroCliente = () => {
       Bairro: bairro,
       Cidade: cidade,
       CEP: cep,
-      Complemento: complemento
+      Complemento: complemento,
     };
 
     try {
-      const token = localStorage.getItem('token');
-      await axios.post('https://servpro.onrender.com/api/Cliente', clienteData, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+      const token = localStorage.getItem("token");
+      await axios.post(
+        "https://servpro.onrender.com/api/Cliente",
+        clienteData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
+      );
 
-      // Reset form
       setNome("");
       setCpf("");
       setEmail("");
@@ -65,16 +68,16 @@ const CadastroCliente = () => {
     } catch (error) {
       if (error.response && error.response.data.errors) {
         const validationErrors = error.response.data.errors;
-        setErrors(validationErrors); 
+        setErrors(validationErrors);
       } else {
-        console.error('Erro ao cadastrar cliente:', error.message);
+        console.error("Erro ao cadastrar cliente:", error.message);
       }
     }
   };
 
   const handleSubmitEquipamento = async (event) => {
     event.preventDefault();
-  
+
     const equipamentoData = {
       Serial: serial,
       Marca: marca,
@@ -82,36 +85,40 @@ const CadastroCliente = () => {
       Descricao: descricao,
       ClienteCPF: cpfEquipamento,
     };
-  
-    const token = localStorage.getItem('token');
-  
+
+    const token = localStorage.getItem("token");
+
     try {
-      await axios.post('https://servpro.onrender.com/api/Equipamento', equipamentoData, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-      console.log('Equipamento cadastrado com sucesso.');
-  
+      await axios.post(
+        "https://servpro.onrender.com/api/Equipamento",
+        equipamentoData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Equipamento cadastrado com sucesso.");
+
       setSerial("");
       setMarca("");
       setModelo("");
       setDescricao("");
-  
+
       navigate("/menu");
     } catch (error) {
       if (error.response && error.response.data.errors) {
         const validationErrors = error.response.data.errors;
-        setErrors(validationErrors); 
+        setErrors(validationErrors);
       } else {
-        console.error('Erro ao cadastrar equipamento:', error.message);
+        console.error("Erro ao cadastrar equipamento:", error.message);
       }
     }
   };
 
   const handleCloseModal = () => {
-    setModalOpen(false); 
+    setModalOpen(false);
   };
 
   return (
@@ -154,7 +161,9 @@ const CadastroCliente = () => {
                 onChange={(e) => setNascimento(e.target.value)}
                 placeholder="Digite a Data de Nascimento"
               />
-              {errors.DataNascimento && <p className="error-message">{errors.DataNascimento[0]}</p>}
+              {errors.DataNascimento && (
+                <p className="error-message">{errors.DataNascimento[0]}</p>
+              )}
             </div>
 
             <div className="campoCpf-os">
@@ -167,7 +176,9 @@ const CadastroCliente = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Digite o e-mail"
               />
-              {errors.Email && <p className="error-message">{errors.Email[0]}</p>}
+              {errors.Email && (
+                <p className="error-message">{errors.Email[0]}</p>
+              )}
             </div>
 
             <div className="campoCpf-os">
@@ -179,7 +190,9 @@ const CadastroCliente = () => {
                 onChange={(e) => setTelefone(e.target.value)}
                 placeholder="Digite o telefone"
               />
-              {errors.Telefone && <p className="error-message">{errors.Telefone[0]}</p>}
+              {errors.Telefone && (
+                <p className="error-message">{errors.Telefone[0]}</p>
+              )}
             </div>
 
             <div className="campoCpf-os">
@@ -192,11 +205,12 @@ const CadastroCliente = () => {
                 onChange={(e) => setSenha(e.target.value)}
                 placeholder="Digite a senha"
               />
-              {errors.Senha && <p className="error-message">{errors.Senha[0]}</p>}
+              {errors.Senha && (
+                <p className="error-message">{errors.Senha[0]}</p>
+              )}
             </div>
           </div>
 
-          {/* Campos de Endereço lado a lado */}
           <div className="cabecalhoOrdem-os">
             <div className="campoCpf-os">
               <label htmlFor="cep">CEP:</label>
@@ -219,7 +233,9 @@ const CadastroCliente = () => {
                 onChange={(e) => setBairro(e.target.value)}
                 placeholder="Digite o Bairro"
               />
-              {errors.Bairro && <p className="error-message">{errors.Bairro[0]}</p>}
+              {errors.Bairro && (
+                <p className="error-message">{errors.Bairro[0]}</p>
+              )}
             </div>
 
             <div className="campoCpf-os">
@@ -231,7 +247,9 @@ const CadastroCliente = () => {
                 onChange={(e) => setCidade(e.target.value)}
                 placeholder="Digite a Cidade"
               />
-              {errors.Cidade && <p className="error-message">{errors.Cidade[0]}</p>}
+              {errors.Cidade && (
+                <p className="error-message">{errors.Cidade[0]}</p>
+              )}
             </div>
 
             <div className="campoCpf-os">
@@ -246,10 +264,90 @@ const CadastroCliente = () => {
             </div>
           </div>
 
-          <button type="submit" className="submit-button4">Salvar Cliente</button>
+          <button type="submit2022" className="submit-button4">
+            Salvar Cliente
+          </button>
         </form>
 
-         <div className="cabecalhoTituloo">Cadastro de Equipamento</div>
+        {/* <div className="cabecalhoTituloo">Cadastro de Equipamento</div> */}
+        <h3 className="servicosProdutos-osss">Cadastre o Equipamento</h3>
+        <form onSubmit={handleSubmitEquipamento}>
+          <section className="dadosCliente-osss">
+            <div className="inputField-os">
+              <label htmlFor="cpfEquipamento">CPF do Cliente:</label>
+              <input
+                type="text"
+                id="cpfEquipamento"
+                value={cpfEquipamento}
+                onChange={(e) => setCpfEquipamento(e.target.value)}
+                placeholder="Digite o CPF do Cliente"
+              />
+              {errors.ClienteCPF && (
+                <p className="error-message">{errors.ClienteCPF[0]}</p>
+              )}
+            </div>
+
+            <div className="inputField-os">
+              <label htmlFor="serial">Serial:</label>
+              <input
+                type="text"
+                id="serial"
+                value={serial}
+                onChange={(e) => setSerial(e.target.value)}
+                placeholder="Digite o Serial"
+              />
+              {errors.Serial && (
+                <p className="error-message">{errors.Serial[0]}</p>
+              )}
+            </div>
+
+            <div className="inputField-os">
+              <label htmlFor="marca">Marca:</label>
+              <input
+                type="text"
+                id="marca"
+                value={marca}
+                onChange={(e) => setMarca(e.target.value)}
+                placeholder="Digite a Marca"
+              />
+              {errors.Marca && (
+                <p className="error-message">{errors.Marca[0]}</p>
+              )}
+            </div>
+
+            <div className="inputField-os">
+              <label htmlFor="modelo">Modelo:</label>
+              <input
+                type="text"
+                id="modelo"
+                value={modelo}
+                onChange={(e) => setModelo(e.target.value)}
+                placeholder="Digite o Modelo"
+              />
+              {errors.Modelo && (
+                <p className="error-message">{errors.Modelo[0]}</p>
+              )}
+            </div>
+
+            <div className="inputField-os">
+              <label htmlFor="descricao">Descrição:</label>
+              <input
+                type="text"
+                id="descricao"
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
+                placeholder="Digite a Descrição"
+              />
+              {errors.Descricao && (
+                <p className="error-message">{errors.Descricao[0]}</p>
+              )}
+            </div>
+            <button type="submit20222" className="submit-button4">Cadastrar Equipamento</button>
+
+          </section>
+        </form>
+
+        {/* <div className="cabecalhoTituloo">Cadastro de Equipamento</div>
         <form onSubmit={handleSubmitEquipamento}>
           <div className="cabecalhoOrdem-os">
             <div className="campoCpf-os">
@@ -314,16 +412,18 @@ const CadastroCliente = () => {
           </div>
 
           <button type="submit" className="submit-button4">Cadastrar Equipamento</button>
-        </form>
+        </form> */}
       </div>
       {modalOpen && (
         <div className="modal">
           <div className="modal-content">
             <h3>Cliente Cadastrado com Sucesso!</h3>
-            <p>O cliente foi registrado. Agora, cadastre um equipamento para ele.</p>
+            <p>
+              O cliente foi registrado. Agora, cadastre um equipamento para ele.
+            </p>
             <button onClick={handleCloseModal}>Fechar</button>
           </div>
-        </div> 
+        </div>
       )}
     </div>
   );
