@@ -41,9 +41,9 @@ function Sidebar4() {
                 </header>
                 <main className="content">
                     {activeComponent === 'telalistatecnico' && <TelaListaTecnico />} 
-                    {activeComponent === 'tecnico' && <ListagemTecnicos />}
-                    {activeComponent === 'inicio' && <TelaInicial />} 
-                    {activeComponent === 'servicos' && <ListagemOrdens />} 
+                    {/* {activeComponent === 'tecnico' && <ListagemTecnicos />} */}
+                    {/* {activeComponent === 'inicio' && <TelaInicial />}  */}
+                    {activeComponent === 'servicos' && <TelaListaTecnico />} 
                 </main>
             </div>
         </div>
