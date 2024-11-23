@@ -22,7 +22,7 @@ import Menu6 from './pages/TelaTecnico/Sidebar4';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />, 
   },  
   {
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
     element: <CadastroTecnico />, 
   },
   {
-    path: '/home',
+    path: '/',
     element: <LandingPage />, 
   },
   {

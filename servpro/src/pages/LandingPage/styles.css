@@ -7,16 +7,32 @@ body {
     padding: 0;
     overflow: auto;
     font-family: 'Inter', sans-serif;
-}
+} 
 
-.fundo {
+/* .fundo {
     display: flex;
     flex-direction: column;
     background-color: #0E4088;
     background-image: url('../../assets/backgroundLandigPage.png');
     max-height: 600px;
     padding: 100px;
+} */
+
+
+.fundo {
+    display: flex;
+    flex-direction: column;
+    background-color: #0E4088;
+    background-image: url('../../assets/backgroundLandigPage.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 100px;
+    min-height: 50vh;
 }
+
+
+
 
 .barraFixa {
     background-color: #0E4088;
@@ -82,7 +98,7 @@ h1 {
     padding: 10px;
 }
 
-.icons {
+.iconsss {
     height: 50px;
     width: 50px;
 }
@@ -91,6 +107,7 @@ h1 {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    margin-left: 200px;
 }
 
 .titleSecundario,
@@ -134,10 +151,12 @@ h1 {
 
 .sessaoDois {
     display: flex;
+   
 }
 
 .textos p {
     margin-left: 220px;
+    margin-left: 280px;
 }
 
 .titleSessaoDois,
@@ -388,9 +407,14 @@ h1 {
     background-color: #0E4088;
 }
 
-.form{
+.formm{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
+}
+
+.logoo {
+    max-width: 270px; 
+    margin-bottom: 20px; 
 }
