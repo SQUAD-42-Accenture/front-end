@@ -118,6 +118,375 @@
 
 // export default Login;
 
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import './styles.css';
+// import logo from '../../assets/LogoServPro.png';
+// import { FaUser, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa';
+// import axios from 'axios';
+
+// const Login = () => {
+//   const [cpf, setCpf] = useState('');
+//   const [senha, setSenha] = useState('');
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [error, setError] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+
+//     const credentials = {
+//       login: cpf,
+//       senha: senha,
+//     };
+
+//     try {
+//       const loginResponse = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
+//         headers: { 'Content-Type': 'application/json' },
+//       });
+
+//       const token = loginResponse.data.token;
+//       localStorage.setItem('token', token);
+
+//       console.log('Login bem-sucedido. Token recebido:', token);
+
+//       let userResponse;
+      
+//       if (cpf.startsWith('1')) {
+//         userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Administrador', {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
+//       } else if (cpf.startsWith('2')) {
+//         userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Tecnico', {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
+//       } else {
+//         userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Cliente', {
+//           headers: { Authorization: `Bearer ${token}` },
+//         });
+//       }
+
+//       console.log('Resposta completa do usuário:', userResponse.data);
+
+   
+//       const usuarioLogado = userResponse.data.find((usuario) => usuario.CPF === cpf);
+
+//       if (usuarioLogado) {
+//         const perfil = usuarioLogado.TipoUsuario;
+
+//         switch (perfil) {
+//           case 'Administrador':
+//             navigate('/menu');
+//             break;
+//           case 'Tecnico':
+//             navigate('/tecnicolista');
+//             break;
+//           case 'Cliente':
+//             navigate('/cadastroos');
+//             break;
+//           default:
+//             setError('Perfil inválido. Contate o administrador do sistema.');
+//         }
+//       } else {
+//         setError('Usuário não encontrado. Verifique as credenciais.');
+//       }
+//     } catch (error) {
+//       console.error('Erro ao realizar o login:', error.response?.data || error.message);
+//       setError('Login inválido. Verifique suas credenciais.');
+//     }
+//   };
+
+//   return (
+//     <div className="background">
+//       <img src={logo} alt="Logo" className="logo" />
+//       <div className="container">
+//         <div className="form-container">
+//           <h2 className="title">LOGIN</h2>
+//           <form className="form" onSubmit={handleSubmit}>
+//             <div className="input-wrapper">
+//               <FaUser className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type="text"
+//                 placeholder="CPF"
+//                 value={cpf}
+//                 onChange={(e) => setCpf(e.target.value)}
+//                 required
+//               />
+//             </div>
+//             <div className="input-wrapper">
+//               <FaKey className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type={showPassword ? 'text' : 'password'}
+//                 placeholder="Senha"
+//                 value={senha}
+//                 onChange={(e) => setSenha(e.target.value)}
+//                 required
+//               />
+//               <span
+//                 className="toggle-password"
+//                 onClick={() => setShowPassword(!showPassword)}
+//               >
+//                 {showPassword ? <FaEyeSlash /> : <FaEye />}
+//               </span>
+//             </div>
+//             {error && <div className="error-message">{error}</div>}
+//             <div className="forgot-password">
+//               <a href="#">Esqueceu sua senha?</a>
+//             </div>
+//             <button className="submit-button" type="submit">
+//               Sign in
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
+
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import './styles.css';
+// import logo from '../../assets/LogoServPro.png';
+// import { FaUser, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa';
+// import axios from 'axios';
+
+// const Login = () => {
+//   const [cpf, setCpf] = useState('');
+//   const [senha, setSenha] = useState('');
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [error, setError] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+
+//     const credentials = {
+//       login: cpf,
+//       senha: senha,
+//     };
+
+//     try {
+     
+//       const loginResponse = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
+//         headers: { 'Content-Type': 'application/json' },
+//       });
+
+//       const token = loginResponse.data.token;
+//       localStorage.setItem('token', token);
+
+//       console.log('Login bem-sucedido. Token recebido:', token);
+
+    
+//       const userResponse = await axios.get(`https://servpro.onrender.com/api/Usuarios/cpf/${cpf}`, {
+//         headers: { Authorization: `Bearer ${token}` },
+//       });
+
+//       console.log('Resposta completa do usuário:', userResponse.data);
+
+//       const usuarioLogado = userResponse.data;
+
+//       if (usuarioLogado) {
+//         const perfil = usuarioLogado.TipoUsuario;
+
+//         switch (perfil) {
+//           case 'Administrador':
+//             navigate('/menu');
+//             break;
+//           case 'Tecnico':
+//             navigate('/tecnicolista');
+//             break;
+//           case 'Cliente':
+//             navigate('/cadastroos');
+//             break;
+//           default:
+//             setError('Perfil inválido. Contate o administrador do sistema.');
+//         }
+//       } else {
+//         setError('Usuário não encontrado. Verifique as credenciais.');
+//       }
+//     } catch (error) {
+//       console.error('Erro ao realizar o login:', error.response?.data || error.message);
+//       setError('Login inválido. Verifique suas credenciais.');
+//     }
+//   };
+
+//   return (
+//     <div className="background">
+//       <img src={logo} alt="Logo" className="logo" />
+//       <div className="container">
+//         <div className="form-container">
+//           <h2 className="title">LOGIN</h2>
+//           <form className="form" onSubmit={handleSubmit}>
+//             <div className="input-wrapper">
+//               <FaUser className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type="text"
+//                 placeholder="CPF"
+//                 value={cpf}
+//                 onChange={(e) => setCpf(e.target.value)}
+//                 required
+//               />
+//             </div>
+//             <div className="input-wrapper">
+//               <FaKey className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type={showPassword ? 'text' : 'password'}
+//                 placeholder="Senha"
+//                 value={senha}
+//                 onChange={(e) => setSenha(e.target.value)}
+//                 required
+//               />
+//               <span
+//                 className="toggle-password"
+//                 onClick={() => setShowPassword(!showPassword)}
+//               >
+//                 {showPassword ? <FaEyeSlash /> : <FaEye />}
+//               </span>
+//             </div>
+//             {error && <div className="error-message">{error}</div>}
+//             <div className="forgot-password">
+//               <a href="#">Esqueceu sua senha?</a>
+//             </div>
+//             <button className="submit-button" type="submit">
+//               Sign in
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import './styles.css';
+// import logo from '../../assets/LogoServPro.png';
+// import { FaUser, FaKey, FaEye, FaEyeSlash } from 'react-icons/fa';
+// import axios from 'axios';
+
+// const Login = () => {
+//   const [cpf, setCpf] = useState('');
+//   const [senha, setSenha] = useState('');
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [error, setError] = useState('');
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+
+//     const credentials = {
+//       login: cpf,
+//       senha: senha,
+//     };
+
+//     try {
+//       // 1. Realiza o login e recebe o token JWT
+//       const loginResponse = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
+//         headers: { 'Content-Type': 'application/json' },
+//       });
+
+//       const token = loginResponse.data.token;
+//       localStorage.setItem('token', token);
+
+//       console.log('Login bem-sucedido. Token recebido:', token);
+
+//       // 2. Faz a requisição para pegar o tipo de usuário baseado no CPF
+//       const userResponse = await axios.get(https://servpro.onrender.com/api/Usuarios/cpf/${cpf}, {
+//         headers: { Authorization: Bearer ${token} },
+//       });
+
+//       console.log('Resposta completa do usuário:', userResponse.data);
+
+//       const usuarioLogado = userResponse.data;
+
+//       if (usuarioLogado && usuarioLogado.TipoUsuario) {
+//         const perfil = usuarioLogado.TipoUsuario;
+
+//         // 3. Navega para a página específica de acordo com o tipo de usuário
+//         switch (perfil) {
+//           case 'Administrador':
+//             navigate('/menu');
+//             break;
+//           case 'Tecnico':
+//             navigate('/tecnicolista');
+//             break;
+//           case 'Cliente':
+//             navigate('/cadastroos');
+//             break;
+//           default:
+//             setError('Perfil inválido. Contate o administrador do sistema.');
+//         }
+//       } else {
+//         setError('Usuário não encontrado. Verifique as credenciais.');
+//       }
+//     } catch (error) {
+//       console.error('Erro ao realizar o login:', error.response?.data || error.message);
+//       setError('Login inválido. Verifique suas credenciais.');
+//     }
+//   };
+
+//   return (
+//     <div className="background">
+//       <img src={logo} alt="Logo" className="logo" />
+//       <div className="container">
+//         <div className="form-container">
+//           <h2 className="title">LOGIN</h2>
+//           <form className="form" onSubmit={handleSubmit}>
+//             <div className="input-wrapper">
+//               <FaUser className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type="text"
+//                 placeholder="CPF"
+//                 value={cpf}
+//                 onChange={(e) => setCpf(e.target.value)}
+//                 required
+//               />
+//             </div>
+//             <div className="input-wrapper">
+//               <FaKey className="icon icon-gray" />
+//               <input
+//                 className="input"
+//                 type={showPassword ? 'text' : 'password'}
+//                 placeholder="Senha"
+//                 value={senha}
+//                 onChange={(e) => setSenha(e.target.value)}
+//                 required
+//               />
+//               <span
+//                 className="toggle-password"
+//                 onClick={() => setShowPassword(!showPassword)}
+//               >
+//                 {showPassword ? <FaEyeSlash /> : <FaEye />}
+//               </span>
+//             </div>
+//             {error && <div className="error-message">{error}</div>}
+//             <div className="forgot-password">
+//               <a href="#">Esqueceu sua senha?</a>
+//             </div>
+//             <button className="submit-button" type="submit">
+//               Sign in
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
@@ -141,6 +510,7 @@ const Login = () => {
     };
 
     try {
+    
       const loginResponse = await axios.post('https://servpro.onrender.com/api/Conta', credentials, {
         headers: { 'Content-Type': 'application/json' },
       });
@@ -150,30 +520,19 @@ const Login = () => {
 
       console.log('Login bem-sucedido. Token recebido:', token);
 
-      let userResponse;
-      
-      if (cpf.startsWith('1')) {
-        userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Administrador', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-      } else if (cpf.startsWith('2')) {
-        userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Tecnico', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-      } else {
-        userResponse = await axios.get('https://servpro.onrender.com/api/Usuarios/Cliente', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-      }
+    
+      const userResponse = await axios.get(`https://servpro.onrender.com/api/Usuarios/cpf/${cpf}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
       console.log('Resposta completa do usuário:', userResponse.data);
 
-   
-      const usuarioLogado = userResponse.data.find((usuario) => usuario.CPF === cpf);
+      const usuarioLogado = userResponse.data;
 
-      if (usuarioLogado) {
+      if (usuarioLogado && usuarioLogado.TipoUsuario) {
         const perfil = usuarioLogado.TipoUsuario;
 
+     
         switch (perfil) {
           case 'Administrador':
             navigate('/menu');
