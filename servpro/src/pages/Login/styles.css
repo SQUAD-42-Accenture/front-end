@@ -87,3 +87,78 @@
 .icon-gray {
   color: gray;
 }
+
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+
+  .form-container {
+    width: 350px;
+    padding: 30px;
+  }
+
+  .title {
+    font-size: 26px;
+    letter-spacing: 3px;
+  }
+
+  .input {
+    font-size: 14px;
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .logo {
+    max-width: 60%;
+  }
+
+  .input {
+    font-size: 12px;
+    padding: 8px 30px;
+  }
+
+  .submit-button {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

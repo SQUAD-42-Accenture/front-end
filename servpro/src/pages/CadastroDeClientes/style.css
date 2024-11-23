@@ -7,6 +7,10 @@
     padding-top: 45px; 
     margin-left: 200px; 
   }
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
   
   .CadastroDeClientes {
     flex: 1;
@@ -133,4 +137,198 @@
   top: 60px; 
   left: 0; 
   color: white; 
+}
+
+.submit-button2 {
+  background-color: #0e4088;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 1430px;
+  transition: background-color 0.3s;
+}
+
+.submit-button2:hover {
+  background-color: #0056b3; 
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content button {
+  background-color: #0056b3; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3; 
+}
+
+input#nascimento.inputnascimento{
+  width: 400px;  
+}
+
+input#senha.inputsenha{
+  width: 400px;  
+}
+
+input#email.inputemail{
+  width: 400px;  
+}
+
+.tela-cheia-osss {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-height: calc(100vh - 100px);
+  margin-left: 80px;
+  height: 10px;
+  
+  /* margin-top: 4px; */
+}
+
+.CadastroDeOS-osss {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: -10px; 
+  margin-left: 0;
+  padding-left: 0;
+  color: #073575;
+  font-weight: bold;
+}
+
+.cabecalhoOrdem-osss {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px;  
+  /* padding: 11px; */
+  margin-left: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.219);
+  /* margin-top: 4px; */
+  /* height: 50%; */
+}
+.cabecalhoOrdem-osss {
+  padding: 11px;
+}
+
+.servicosProdutos-osss {
+  padding: 10px;
+  margin-left: 50px;
+  /* background-color: white; */
+  border-radius: 10px;
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.219); */
+  margin-top: -40px;
+}
+
+.cabecalhoTituloo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px; 
+  margin-left: 50px;
+  background-color: #0e4088;
+  font-weight: bold;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.048);
+}
+
+.dadosCliente-osss {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+  margin-left: 50px;
+  /* margin-top: 40px; */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.219);
+}
+button[type="submit2022"] {
+  background-color: #0e4088;   
+  color: white;                
+  padding: 14px 20px;         
+  border: none;               
+  border-radius: 8px;         
+  cursor: pointer;            
+  font-size: 1.1rem;           
+  font-weight: bold;           
+  transition: background-color 0.3s ease; 
+  display: block;              
+  margin: 11px auto;          
+  width: auto;                 
+  max-width: 300px;            
+  text-align: center;          
+}
+
+
+button[type="submit2022"]:hover {
+  background-color: #136cd1;   
+}
+
+button[type="submit20222"] {
+  background-color: #0e4088;   
+  color: white;                
+  padding: 5px 5px;         
+  border: none;               
+  border-radius: 8px;         
+  cursor: pointer;            
+  font-size: 1.1rem;           
+  font-weight: bold;           
+  transition: background-color 0.3s ease; 
+  display: block;              
+  margin: 11px auto;          
+  width: auto;                 
+  max-width: 150px;            
+  text-align: center;          
+}
+
+
+button[type="submit20222"]:hover {
+  background-color: #136cd1;   
 }

@@ -3,9 +3,9 @@ import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { FaChartLine } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineFolder } from "react-icons/hi";
-import "./styles.css";
+import "./style.css";
 
-const MenuList = ({ collapsed, onMenuClick }) => {
+const MenuList3 = ({ collapsed, onMenuClick }) => {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState("");
 
@@ -87,4 +87,4 @@ const MenuList = ({ collapsed, onMenuClick }) => {
   );
 };
 
-export default MenuList;
+export default MenuList3;

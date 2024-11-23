@@ -5,7 +5,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineFolder } from "react-icons/hi";
 import "./styles.css";
 
-const MenuList = ({ collapsed, onMenuClick }) => {
+const MenuList1 = ({ collapsed, onMenuClick }) => {
   const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState("");
 
@@ -87,4 +87,4 @@ const MenuList = ({ collapsed, onMenuClick }) => {
   );
 };
 
-export default MenuList;
+export default MenuList1;

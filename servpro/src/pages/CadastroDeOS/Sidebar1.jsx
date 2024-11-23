@@ -1,19 +1,17 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react'; 
-import './styles.css';
-import logo from '../../assets/LogoServPro.png';
-import MenuList from './MenuList';
-import ListarCliente from '../../pages/ListagemClientes/ListarCliente'; 
-import ListagemTecnicos from '../../pages/ListagemTecnicos/ListarTecnico'; 
-import TelaInicial from '../../pages/TelaInicial/TelaInicial'; 
-import ListagemOrdens from '../../pages/ListagemOrdens/ListarOrdens'; 
+import React, { useState } from "react";  
+import "./styles.css";
+import logo from "../../assets/LogoServPro.png";
+import CadastroOrdemServico from "../../pages/CadastroDeOS/CadastroOS"; 
+import ListagemTecnicos from "../../pages/ListagemTecnicos/ListarTecnico"; 
+import TelaInicial from "../../pages/TelaInicial/TelaInicial"; 
+import ListagemOrdens from "../../pages/ListagemOrdens/ListarOrdens"; 
+import MenuList1 from './MenuList1';
 
+import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from "react-icons/ai"; 
 
-import { AiOutlineMenu, AiOutlineBell, AiOutlineQuestionCircle, AiOutlineUser } from 'react-icons/ai'; 
-
-function Sidebar() {
+function Sidebar1() {
     const [collapsed, setCollapsed] = useState(false);
-    const [activeComponent, setActiveComponent] = useState('clientes'); 
+    const [activeComponent, setActiveComponent] = useState('cadastroordemservico'); 
 
     const toggleSidebar = () => {
         setCollapsed(!collapsed);
@@ -30,7 +28,7 @@ function Sidebar() {
                     <AiOutlineMenu className="menu-icon hamburger-icon" onClick={toggleSidebar} /> 
                     {!collapsed && <img src={logo} alt="Logo" className="logo" />}
                 </div>
-                <MenuList collapsed={collapsed} onMenuClick={handleMenuClick} /> 
+                <MenuList1 collapsed={collapsed} onMenuClick={handleMenuClick} />
             </aside>
             <div className="main-layout">
                 <header className="header">
@@ -41,15 +39,14 @@ function Sidebar() {
                     </div>
                 </header>
                 <main className="content">
-                    {activeComponent === 'clientes' && <ListarCliente />} 
+                    {activeComponent === 'cadastroordemservico' && <CadastroOrdemServico />} 
                     {activeComponent === 'tecnico' && <ListagemTecnicos />}
                     {activeComponent === 'inicio' && <TelaInicial />} 
                     {activeComponent === 'servicos' && <ListagemOrdens />} 
-
                 </main>
             </div>
         </div>
     );
 }
 
-export default Sidebar;
+export default Sidebar1;
