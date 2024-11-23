@@ -8,6 +8,7 @@ import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
+import LandingPage from './pages/LandingPage/LandingPage';
 import EditarCliente from './pages/EditarCliente/EditarCliente';
 import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
 import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: '/cadastrotecnico',
     element: <CadastroTecnico />, 
+  },
+  {
+    path: '/home',
+    element: <LandingPage />, 
   },
   {
     path: '/editarcliente',
