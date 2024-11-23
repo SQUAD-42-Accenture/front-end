@@ -12,9 +12,11 @@ import EditarCliente from './pages/EditarCliente/EditarCliente';
 import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
 import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
 import CadastroOrdemServico from './pages/CadastroDeOS/CadastroOS';
+import TelaInicialCliente from './pages/TelaInicialCliente/TelaInicialCliente';
 import Menu2 from './pages/CadastroDeOS/Sidebar1';
 import Menu3 from './pages/CadastroDeTecnicos/Sidebar2';
 import Menu4 from './pages/CadastroDeClientes/Sidebar3';
+import Menu5 from './pages/TelaInicialCliente/Sidebar4';
 
 
 const router = createBrowserRouter([
@@ -73,7 +75,16 @@ const router = createBrowserRouter([
   {
     path: '/clientecadastro',
     element: <Menu4 />, 
+  },
+  {
+    path: '/telainicialcliente',
+    element: <TelaInicialCliente />, 
+  },
+  {
+    path: '/telaclienteinicial',
+    element: <Menu5 />, 
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
