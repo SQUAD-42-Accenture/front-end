@@ -1,161 +1,192 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import "./styles.css";
 
 const EditarCliente = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { client } = location.state || {};
 
-  const [nome, setNome] = useState(client ? client.name : "");
-  const [cpf, setCpf] = useState(client ? client.cpf : "");
-  const [email, setEmail] = useState(client ? client.email : "");
-  const [telefone, setTelefone] = useState(client ? client.phone : "");
-  const [nascimento, setNascimento] = useState(client ? client.nascimento : "");
-  const [logradouro, setLogradouro] = useState(client ? client.logradouro : "");
-  const [cep, setCep] = useState(client ? client.cep : "");
-  const [bairro, setBairro] = useState(client ? client.bairro : "");
-  const [numero, setNumero] = useState(client ? client.numero : "");
-  const [cidade, setCidade] = useState(client ? client.cidade : "");
-  const [complemento, setComplemento] = useState(client ? client.complemento : "");
-  const [referencia, setReferencia] = useState(client ? client.referencia : "");
-  
-  const [equipamentos, setEquipamentos] = useState([
-    { numeroSerie: "12345", modelo: "Modelo X", marca: "Marca Y", status: "Ativo", dataConclusao: "2024-09-29" }
-  ]);
+  const [nome, setNome] = useState(client?.Nome || "");
+  const [cpf, setCpf] = useState(client?.CPF || "");
+  const [email, setEmail] = useState(client?.Email || "");
+  const [telefone, setTelefone] = useState(client?.Telefone || "");
+  const [nascimento, setNascimento] = useState(client?.DataNascimento || "");
+  const [cep, setCep] = useState(client?.CEP || "");
+  const [bairro, setBairro] = useState(client?.Bairro || "");
+  const [cidade, setCidade] = useState(client?.Cidade || "");
+  const [complemento, setComplemento] = useState(client?.Complemento || "");
+  const [senha, setSenha] = useState(""); 
 
-  const handleSave = () => {
-    const updatedClient = { nome, cpf, email, telefone, nascimento, logradouro, cep, bairro, numero, cidade, complemento, referencia };
-    console.log("Dados editados:", updatedClient);
+  const handleSave = async (event) => {
+    event.preventDefault();
+
+    const clienteData = {
+      Nome: nome,
+      CPF: cpf,
+      Email: email,
+      Telefone: telefone,
+      DataNascimento: nascimento,
+      CEP: cep,
+      Bairro: bairro,
+      Cidade: cidade,
+      Complemento: complemento,
+      Senha: senha, 
+    };
+
+    const token = localStorage.getItem("token");
+
+    try {
+      await axios.put(
+        `https://servpro.onrender.com/api/Cliente/${client.CPF}`,
+        clienteData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("Cliente atualizado com sucesso.");
+      navigate("/menu");
+    } catch (error) {
+      console.error("Erro ao salvar cliente:", error.message);
+    }
+  };
+
+  const handleCancel = () => {
+    navigate("/menu"); 
   };
 
   return (
-    <div className="tela-cheia">
-      <header className="header2"></header>
-      <nav className="menu2"></nav>
+    <div className="tela-cheia-os">
+      <div className="CadastroDeOS-os">
+        <div className="cabecalhoTitulo">Edição de Cliente</div>
+        <form onSubmit={handleSave}>
+          <div className="campo-horizontal">
+            <div className="campoCpf-os1">
+              <label htmlFor="nome">Nome:</label>
+              <input
+                type="text"
+                id="nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder="Digite o nome do Cliente"
+              />
+            </div>
 
-      <div className="CadastroDeClientes">
-        <div className="atualizacao">
-          <p className="titulocliente2">Edição de Cliente</p>
-          <p>Data de edição: {new Date().toLocaleDateString()}</p>
-        </div>
-        
-        <section className="secaoDadosCliente">
-          <p className="titulo-dados">Dados Pessoais</p>
-          <div className="containerDadosCadastrais">
-            <input
-              type="text"
-              placeholder="Nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="CPF"
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
-            />
+            <div className="campoCpf-os1">
+              <label htmlFor="cpf">CPF:</label>
+              <input
+                type="text"
+                id="cpf"
+                value={cpf}
+                disabled
+                placeholder="CPF não pode ser editado"
+              />
+            </div>
+          </div>
+
+          <div className="campo-horizontal">
+            <div className="campoCpf-os1">
+              <label htmlFor="email">E-mail:</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Digite o e-mail"
+              />
+            </div>
+
+            <div className="campoCpf-os1">
+              <label htmlFor="telefone">Telefone:</label>
+              <input
+                type="text"
+                id="telefone"
+                value={telefone}
+                onChange={(e) => setTelefone(e.target.value)}
+                placeholder="Digite o telefone"
+              />
+            </div>
+          </div>
+
+          <div className="campoCpf-os1">
+            <label htmlFor="nascimento">Data de Nascimento:</label>
             <input
               type="date"
-              placeholder="Data de Nascimento"
+              id="nascimento"
               value={nascimento}
               onChange={(e) => setNascimento(e.target.value)}
             />
-            <input
-              type="text"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Telefone"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
-            />
           </div>
-        </section>
 
-        <section className="secaoEnderecoCliente">
-          <p className="titulo-dados">Dados de Endereço</p>
-          <div className="containerDadosEndereco">
+          <div className="campoCpf-os1">
+            <label htmlFor="cep">CEP:</label>
             <input
               type="text"
-              placeholder="Logradouro"
-              value={logradouro}
-              onChange={(e) => setLogradouro(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="CEP"
+              id="cep"
               value={cep}
               onChange={(e) => setCep(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Bairro"
-              value={bairro}
-              onChange={(e) => setBairro(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Número"
-              value={numero}
-              onChange={(e) => setNumero(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Cidade"
-              value={cidade}
-              onChange={(e) => setCidade(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Complemento"
-              value={complemento}
-              onChange={(e) => setComplemento(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Ponto de Referência"
-              value={referencia}
-              onChange={(e) => setReferencia(e.target.value)}
+              placeholder="Digite o CEP"
             />
           </div>
-        </section>
 
-        <section className="secaoHistoricoEquipamento">
-          <p className="titulo-dados">Histórico de Equipamento</p>
-          <table className="tabelaEquipamentos">
-            <thead>
-              <tr>
-                <th>Número de Série</th>
-                <th>Modelo</th>
-                <th>Marca</th>
-                <th>Status</th>
-                <th>Data de Conclusão</th>
-              </tr>
-            </thead>
-            <tbody>
-              {equipamentos.map((equipamento, index) => (
-                <tr key={index}>
-                  <td>{equipamento.numeroSerie}</td>
-                  <td>{equipamento.modelo}</td>
-                  <td>{equipamento.marca}</td>
-                  <td>{equipamento.status}</td>
-                  <td>{equipamento.dataConclusao}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <button className="botaoCadastrarEquipamento">
-            Cadastrar
-          </button>
-        </section>
+          <div className="campoCpf-os1">
+            <label htmlFor="bairro">Bairro:</label>
+            <input
+              type="text"
+              id="bairro"
+              value={bairro}
+              onChange={(e) => setBairro(e.target.value)}
+              placeholder="Digite o bairro"
+            />
+          </div>
+
+          <div className="campoCpf-os1">
+            <label htmlFor="cidade">Cidade:</label>
+            <input
+              type="text"
+              id="cidade"
+              value={cidade}
+              onChange={(e) => setCidade(e.target.value)}
+              placeholder="Digite a cidade"
+            />
+          </div>
+
+          <div className="campoCpf-os1">
+            <label htmlFor="complemento">Complemento:</label>
+            <input
+              type="text"
+              id="complemento"
+              value={complemento}
+              onChange={(e) => setComplemento(e.target.value)}
+              placeholder="Digite o complemento"
+            />
+          </div>
+
+          <div className="campoCpf-os1">
+            <label htmlFor="senha">Senha:</label>
+            <input
+              type="password"
+              id="senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              placeholder="Digite a senha"
+            />
+          </div>
+
+          <div className="botoes">
+            <button type="submit202">Salvar</button>
+            <button type="submit202" onClick={handleCancel}>
+              Voltar
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
 };
 
 export default EditarCliente;
-
-

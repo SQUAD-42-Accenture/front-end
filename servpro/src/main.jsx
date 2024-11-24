@@ -8,6 +8,7 @@ import ListarTecnico from './pages/ListagemTecnicos/ListarTecnico';
 import TelaInicial from './pages/TelaInicial/TelaInicial';
 import CadastroCliente from './pages/CadastroDeClientes/CadastroDeClientes';
 import CadastroTecnico from './pages/CadastroDeTecnicos/CadastroDeTecnicos';
+import LandingPage from './pages/LandingPage/LandingPage';
 import EditarCliente from './pages/EditarCliente/EditarCliente';
 import EditarTecnico from './pages/EditarTecnico/EditarTecnico';
 import ListagemOrdens from './pages/ListagemOrdens/ListarOrdens';
@@ -17,11 +18,14 @@ import Menu2 from './pages/CadastroDeOS/Sidebar1';
 import Menu3 from './pages/CadastroDeTecnicos/Sidebar2';
 import Menu4 from './pages/CadastroDeClientes/Sidebar3';
 import Menu5 from './pages/TelaInicialCliente/Sidebar4';
+import Menu6 from './pages/TelaTecnico/Sidebar4';
+import Menu7 from './pages/EditarCliente/Sidebar7';
+
 
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />, 
   },  
   {
@@ -47,6 +51,10 @@ const router = createBrowserRouter([
   {
     path: '/cadastrotecnico',
     element: <CadastroTecnico />, 
+  },
+  {
+    path: '/',
+    element: <LandingPage />, 
   },
   {
     path: '/editarcliente',
@@ -83,6 +91,14 @@ const router = createBrowserRouter([
   {
     path: '/telaclienteinicial',
     element: <Menu5 />, 
+  },
+  {
+    path: '/tecnicolista',
+    element: <Menu6 />, 
+  },
+  {
+    path: '/edicaocliente',
+    element: <Menu7 />, 
   }
 
 ]);

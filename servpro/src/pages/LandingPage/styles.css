@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: 'Inter', sans-serif;
+} 
+
+/* .fundo {
+    display: flex;
+    flex-direction: column;
+    background-color: #0E4088;
+    background-image: url('../../assets/backgroundLandigPage.png');
+    max-height: 600px;
+    padding: 100px;
+} */
+
+
+.fundo {
+    display: flex;
+    flex-direction: column;
+    background-color: #0E4088;
+    background-image: url('../../assets/backgroundLandigPage.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 100px;
+    min-height: 50vh;
+}
+
+
+
+
+.barraFixa {
+    background-color: #0E4088;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.barraFixa a {
+    text-decoration: none;
+    color: white;
+}
+
+.conteudoInicial {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    margin-top: 150px;
+}
+
+h1 {
+    display: flex;
+    font-size: 25px;
+    max-width: 360px;
+    color: white;
+}
+
+.boxs {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+    color: black;
+}
+
+.boxies {
+    font-size: 18px;
+}
+
+.produtividade {
+    background-color: #F2F5FA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.produtividade,
+.tudo,
+.flexibilidade p {
+    max-width: 260px;
+}
+
+.tudo {
+    background-color: #F2F5FA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.flexibilidade {
+    background-color: #F2F5FA;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.iconsss {
+    height: 50px;
+    width: 50px;
+}
+
+.conteudoSecundario {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.titleSecundario,
+.continuaTitleSecundario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    margin-left: 150px;
+    color: #1A3453;
+}
+
+.titleSecundario,
+.titleSessaoDois {
+    font-size: 30px;
+}
+
+.continuaTitleSecundario {
+    font-size: 20px;
+    margin-top: 0;
+    margin-left: 180px;
+}
+
+.conteudoSecundario p {
+    max-width: 470px;
+    margin-left: 150px;
+    color: #171717;
+}
+
+.pc {
+    height: 427px;
+    width: 467px;
+    margin-top: -180px;
+    margin-left: 750px;
+}
+
+.underline {
+    height: 10px;
+    width: 200px;
+    margin-left: 280px;
+}
+
+.sessaoDois {
+    display: flex;
+   
+}
+
+.textos p {
+    margin-left: 220px;
+    margin-left: 280px;
+}
+
+.titleSessaoDois,
+.continuaTitleSessaoDois {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    margin-left: 220px;
+    color: #1A3453;
+}
+
+.continuaTitleSessaoDois {
+    margin-top: 0;
+    font-size: 20px;
+    margin-left: 250px;
+}
+
+.celular {
+    height: 430px;
+    width: 200px;
+    margin-top: -180px;
+    margin-left: 180px;
+}
+
+.underlineDois {
+    height: 10px;
+    width: 200px;
+    margin-left: 350px;
+}
+
+.conteudoTres {
+    display: flex;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #0E4088;
+}
+
+.conteudoTres p,
+.conteudoQuatro p {
+    max-width: 480px;
+}
+
+.textosDois {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 150px;
+    color: white;
+}
+
+.mulher {
+    margin-left: 100px;
+    height: 300px;
+    width: 300px;
+}
+
+.line,
+.lineCinco {
+    height: 3px;
+    width: 100px;
+    margin-top: -20px;
+    margin-left: 5px;
+}
+
+.conteudoQuatro {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.textosTrês {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #0E4088;
+}
+
+.notebook {
+    height: 380px;
+    width: 410px;
+    margin-left: 30px;
+}
+
+.conteudoCinco {
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFF;
+    padding: 50px;
+}
+
+.tituloCinco {
+    display: flex;
+    justify-content: center;
+    color: #0E4088;
+    margin-top: -30px;
+}
+
+.lineCinco {
+    margin-left: 410px;
+}
+
+.boxsDois {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 40px;
+    color: white;
+}
+
+.boxiesDois {
+    font-size: 18px;
+}
+
+.numero {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.clientes,
+.otimizacao,
+.ordensServico,
+.satisfacao {
+    background-color: #0E4088;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.clientes,
+.otimizacao,
+.ordensServico,
+.satisfacao p {
+    max-width: 260px;
+}
+
+.conteudoSeis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+.tituloSeis {
+    display: flex;
+    justify-content: center;
+    color: #0E4088;
+    font-size: 30px;
+    margin-top: -30px;
+}
+
+.conteudoSete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #0E4088;
+}
+
+.tituloSete {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
+
+.containerPlanos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 50px;
+    background-color: white;
+    border-radius: 15px;
+    height: 400px;
+    width: 980px;
+}
+
+.price {
+    font-size: 30px;
+    color: #0E4088;
+}
+
+.standart {
+    border-radius: 10px;
+    padding: 49px;
+    box-shadow: 5px 5px 15px rgb(221, 221, 221);
+    color: white;
+    background-color: #0E4088;
+}
+
+.conteudoOito {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.parteUm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    border-radius: 10px;
+    height: 200px;
+    width: 700px;
+    padding: 15px;
+    background-color: #0E4088;
+    color: white;
+}
+
+.parteUmTitle{
+    display: flex;
+    gap: 300px;
+}
+
+.parteUm p{
+    max-width: 500px;
+}
+
+.parteDois {
+    display: flex;
+}
+
+.textosParteDois h2{
+    font-size: 30px;
+    max-width: 280px;
+}
+
+.textosParteDois, .miniSessao p{
+    max-width: 395px;
+}
+
+.parteTres {
+    display: flex;
+    gap: 190px;
+}
+
+.footer{
+    margin-top: 80px;
+}
+
+.estrutura{
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    background-color: #0E4088;
+}
+
+.formm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.logoo {
+    max-width: 270px; 
+    margin-bottom: 20px; 
+}
