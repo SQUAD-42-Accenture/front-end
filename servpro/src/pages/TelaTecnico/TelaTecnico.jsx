@@ -1,4 +1,4 @@
-// import React, { useState } from "react"; 
+// import React, { useState } from "react";  
 // import { useLocation } from "react-router-dom";
 // import {
 //   Table,
@@ -183,7 +183,7 @@
 //             boxShadow: "0px 4px 20px rgba(0,0,0,0.1)",
 //           }}
 //         >
-//           <h3>Alterar Status</h3>
+//           <h3>Alterar Status - Ordem ID: {selectedOrdem?.Id}</h3>
 //           <TextField
 //             select
 //             label="Novo Status"
@@ -195,9 +195,9 @@
 //               native: true,
 //             }}
 //           >
-//             <option value="Andamento">Andamento</option>
+//             <option value="Em Andamento">Andamento</option>
 //             <option value="Aberta">Aberta</option>
-//             <option value="Concluído">Concluído</option>
+//             <option value="Concluido">Concluído</option>
 //             <option value="Pendente">Pendente</option>
 //           </TextField>
 
@@ -221,25 +221,24 @@
 
 // const getStatusColor = (status) => {
 //   switch (status) {
-//     case 'Concluído':
-//       return 'green';  
-//     case 'Em Andamento':
-//       return 'blue';   
-//     case 'Pendente':
-//       return 'orange'; 
-//     case 'Cancelada':
-//       return 'red';   
-//     case 'Aberta':
-//       return 'lightblue'; 
+//     case "Concluído":
+//       return "green";
+//     case "Em Andamento":
+//       return "blue";
+//     case "Pendente":
+//       return "orange";
+//     case "Cancelada":
+//       return "red";
+//     case "Aberta":
+//       return "lightblue";
 //     default:
-//       return 'gray'; 
+//       return "gray";
 //   }
 // };
 
 // export default TecnicoLista;
 
-
-import React, { useState } from "react";  
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Table,
@@ -262,7 +261,7 @@ import axios from "axios";
 
 const TecnicoLista = () => {
   const location = useLocation();
-  const ordensServico = location.state?.ordensServico || []; 
+  const ordensServico = location.state?.ordensServico || [];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [openModal, setOpenModal] = useState(false);
@@ -294,11 +293,17 @@ const TecnicoLista = () => {
       return;
     }
 
+   
+    const token = localStorage.getItem("token"); // Exemplo de como pegar o token do localStorage
+
     axios
       .put(
         `https://servpro.onrender.com/api/OrdemDeServico/${selectedOrdem.Id}`,
+        { Status: novoStatus },
         {
-          Status: novoStatus,
+          headers: {
+            Authorization: `Bearer ${token}`, // Adiciona o token no cabeçalho da requisição
+          },
         }
       )
       .then(() => {
@@ -436,9 +441,9 @@ const TecnicoLista = () => {
               native: true,
             }}
           >
-            <option value="Andamento">Andamento</option>
+            <option value="Em Andamento">Andamento</option>
             <option value="Aberta">Aberta</option>
-            <option value="Concluído">Concluído</option>
+            <option value="Concluido">Concluído</option>
             <option value="Pendente">Pendente</option>
           </TextField>
 
@@ -462,7 +467,7 @@ const TecnicoLista = () => {
 
 const getStatusColor = (status) => {
   switch (status) {
-    case "Concluído":
+    case "Concluido":
       return "green";
     case "Em Andamento":
       return "blue";
