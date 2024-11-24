@@ -313,4 +313,61 @@ select {
     background-color: #0056b3;
 }
 
+.campoCpf-os1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .campoCpf-os1 label {
+    width: 150px;
+    margin-right: 10px;
+  }
+  
+  .campoCpf-os1 input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .campoCpf-os1 input,
+.campoCpf-os1 select {
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid #d1d1d1;
+  background-color: #ffffff;
+  font-family: 'Roboto', Arial, sans-serif;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  margin-top: 2px;
+}
 
+.campoCpf-os1 select {
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  height: auto;
+}
+
+.campoCpf-os {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .campo-horizontal {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .campo-horizontal label {
+    flex: 1;
+  }
+  
+  .campo-horizontal input {
+    flex: 2;
+  }
+  
