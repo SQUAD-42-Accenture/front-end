@@ -18,6 +18,7 @@ import Menu3 from './pages/CadastroDeTecnicos/Sidebar2';
 import Menu4 from './pages/CadastroDeClientes/Sidebar3';
 import Menu6 from './pages/TelaTecnico/Sidebar4';
 import Menu7 from './pages/EditarCliente/Sidebar7';
+import Menu8 from './pages/TelaCliente/Sidebar9';
 
 
 
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
   {
     path: '/edicaocliente',
     element: <Menu7 />, 
+  },
+  {
+    path: '/telacliente',
+    element: <Menu8 />, 
   }
 ]);
 
