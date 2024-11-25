@@ -1,5 +1,5 @@
 import React, { useState } from "react";  
-import "./styles.css";
+// import "./styles.css";
 import logo from "../../assets/LogoServPro.png";
 // import CadastroOrdemServico from "../CadastroDeOS/CadastroOS"; 
 import ListagemTecnicos from "../ListagemTecnicos/ListarTecnico"; 

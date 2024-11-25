@@ -29,7 +29,7 @@
 import React from "react";
 import { HiOutlineFolder } from "react-icons/hi"; 
 import { useNavigate } from "react-router-dom";
-import "./styles.css";
+// import "./styles.css";
 
 const MenuList9 = ({ collapsed }) => {
   const navigate = useNavigate();
