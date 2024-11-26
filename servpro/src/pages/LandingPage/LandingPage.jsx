@@ -12,20 +12,23 @@ import line from '../../assets/Line.png';
 import notebook from '../../assets/notebook.png';
 import clientes from '../../assets/clientes.png';
 import homem from '../../assets/homem.png';
-
+import logo from '../../assets/logoNav.png';
 
 const LandingPage = () => {
 
     return (
         <div className='back'>
             <div className='barraFixa'>
-                <a href="">Quem Somos</a>
-                <a href="">Nossos Serviços</a>
-                <a href="">Planos</a>
+                <a href="#quemSomos">Quem Somos</a>
+                <a href="#servicos">Nossos Serviços</a>
+                <a href="#planos">Planos</a>
                 <a href="">Login</a>
             </div>
             <div className='fundo'>
                 <div className='conteudoInicial'>
+                    <div className='logoLandingPage'>
+                        <img className="logoNav" src={logo} alt="" />
+                    </div>
                     <h1>Acompanhe seu serviço do começo ao fim.</h1>
                     <Button sx={{
                         backgroundColor: '#00FCA8',
@@ -58,26 +61,13 @@ const LandingPage = () => {
                     <p>Cadastre, visualize, atualize ou exclua sempre que precisar.</p>
                 </div>
             </div>
-            <div className='conteudoSecundario'>
+            <div className='conteudoSecundario' id='servicos'>
                 <div className='sessaoUm'>
                     <h2 className='titleSecundario'>Gerenciamento</h2>
                     <h2 className='continuaTitleSecundario'>Feito para Assistência Técnica</h2>
                     <img className="underline" src={underline} alt="" />
                     <p>Gere relatórios detalhados para análises precisas de desempenho,
                         tempo de atendimento e satisfação do cliente.</p>
-                    <Button sx={{
-                        backgroundColor: '#00FCA8',
-                        maxWidth: '200px',
-                        marginLeft: '150px',
-                        color: 'white',
-                        padding: '10px 20px',
-                        fontSize: '16px',
-                        borderRadius: '8px',
-                        textTransform: 'none',
-                        '&:hover': {
-                            backgroundColor: '#0A3266',
-                        }
-                    }}>Conheça</Button>
                     <img className="pc" src={pc} alt="" />
                 </div>
                 <div className='sessaoDois'>
@@ -90,7 +80,7 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <div className='conteudoTres'>
+            <div className='conteudoTres' id='quemSomos'>
                 <img className="mulher" src={mulher} alt="" />
                 <div className='textosDois'>
                     <h2 className='tituloTres'>Soluções para sua Assistência</h2>
@@ -141,7 +131,7 @@ const LandingPage = () => {
                 <h2 className='tituloSeis'>Satisfação dos nossos Clientes</h2>
                 <img className="clientesImage" src={clientes} alt="" />
             </div>
-            <div className='conteudoSete'>
+            <div className='conteudoSete' id='planos'>
                 <h2 className='tituloSete'>Nossos Planos</h2>
                 <div className='containerPlanos'>
                     <div className='basic'>
@@ -152,7 +142,7 @@ const LandingPage = () => {
                         <p>3 Técnicos</p>
                         <p>250 clientes mensais</p>
                         <Button sx={{
-                            backgroundColor: '#00FCA8',
+                            backgroundColor: '#979797',
                             maxWidth: '200px',
                             color: 'white',
                             padding: '10px 20px',
@@ -175,7 +165,7 @@ const LandingPage = () => {
                         <Button sx={{
                             backgroundColor: '#00FCA8',
                             maxWidth: '200px',
-                            color: 'white',
+                            color: '#0E4088',
                             padding: '10px 20px',
                             fontSize: '16px',
                             borderRadius: '8px',
@@ -193,7 +183,7 @@ const LandingPage = () => {
                         <p>10 Técnicos</p>
                         <p>+400 clientes mensais</p>
                         <Button sx={{
-                            backgroundColor: '#00FCA8',
+                            backgroundColor: '#979797',
                             maxWidth: '200px',
                             color: 'white',
                             padding: '10px 20px',
@@ -225,7 +215,7 @@ const LandingPage = () => {
                         }}>Contate-nos</Button>
                     </div>
                     <p> Deixe com a gente! Nossa equipe especializada
-                        resolve suas questões rapidamente, para que você possa seguir sua jornada sem preocupações goodness.
+                        resolve suas questões rapidamente, para que você possa seguir sua jornada sem preocupações.
                     </p>
                 </div>
                 <div className='parteDois'>
@@ -268,7 +258,7 @@ const LandingPage = () => {
                         <p>Otimização de Tempo</p>
                     </div>
                     <div className='form'>
-                        <p>Inscreva-se para receber notícias</p>
+                        <input type="text" id="email" name="email" placeholder="Inscreva-se para receber notícias" />
                         <Button sx={{
                             backgroundColor: 'white',
                             maxHeight: '40px',
