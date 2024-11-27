@@ -7,11 +7,11 @@ O **Serve Pro** é um projeto inovador desenvolvido como parte do desafio da Res
 
 A plataforma de gerenciamento visa otimizar o tempo das empresas, permitindo um acompanhamento mais eficiente do fluxo de serviços. Além disso, proporciona aos clientes maior autonomia, facilitando o monitoramento de suas solicitações.
 
-## 🚀 Tecnologias Utilizadas
+## 📊 **Tecnologias Utilizadas**
+- **Frontend:** React, Node.js, CSS, React Icons.
+- **Backend:** C#, Swagger, PostgreSQL, .NET, Docker.
+- **Hospedagem:** Render.
 
-- **Front-end**: React
-- **Estilização**: [CSS, Styled Components, ou outra biblioteca]
-- **Outras ferramentas**: [Inserir outras bibliotecas, como Axios para requisições, etc.]
 
 ## 🎨 Equipe Afrodite
 
@@ -158,13 +158,6 @@ para que tudo volte ao normal, isso é uma limitação temporária relacionada a
   <img src="https://github.com/user-attachments/assets/7be752c6-8012-4a8c-b6e9-ce597ee5b320" alt="Acompanhamento de OS pelo Cliente" width="600"/>
   <p align="center"><em>Acompanhamento de Ordens de Serviço</em></p>
 </p>
-
----
-
-## 📊 **Tecnologias Utilizadas**
-- **Frontend:** React, Node.js, CSS, React Icons.
-- **Backend:** C#, Swagger, PostgreSQL, .NET, Docker.
-- **Hospedagem:** Render.
 
 ---
 
