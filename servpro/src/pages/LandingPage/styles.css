@@ -31,9 +31,6 @@ body {
     min-height: 50vh;
 }
 
-
-
-
 .barraFixa {
     background-color: #0E4088;
     padding: 15px;
@@ -52,7 +49,7 @@ body {
     flex-direction: column;
     justify-content: center;
     margin-left: 50px;
-    margin-top: 150px;
+    margin-top: 30px;
 }
 
 h1 {
@@ -106,6 +103,7 @@ h1 {
 .conteudoSecundario {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 30px;
     margin-left: 200px;
 }
@@ -190,6 +188,7 @@ h1 {
 .conteudoTres {
     display: flex;
     margin-top: 50px;
+    justify-content: center;
     padding: 10px;
     background-color: #0E4088;
 }
@@ -255,6 +254,7 @@ h1 {
 }
 
 .lineCinco {
+    align-items: center;
     margin-left: 410px;
 }
 
@@ -389,11 +389,16 @@ h1 {
 
 .textosParteDois, .miniSessao p{
     max-width: 395px;
+    color: #092257;
 }
 
 .parteTres {
     display: flex;
     gap: 190px;
+}
+
+.parteTres h2{
+    color: #092257;
 }
 
 .footer{
@@ -404,6 +409,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 80px;
+    padding: 25px;
     background-color: #0E4088;
 }
 
@@ -414,6 +420,18 @@ h1 {
     gap: 20px;
 }
 
+.logoNav{
+    width: 300px;
+}
+
+.estrutura{
+    color: white;
+    font-size: 15px;
+}
+
+#email{
+    margin-top: 15px;
+}
 .logoo {
     max-width: 270px; 
     margin-bottom: 20px; 

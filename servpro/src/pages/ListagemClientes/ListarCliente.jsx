@@ -215,7 +215,7 @@ function ListagemClientes() {
           Authorization: `Bearer ${token}`,
         },
       });
-      navigate("/edicaocliente", { state: { client: response.data } });
+      navigate(" ", { state: { client: response.data } });
     } catch (error) {
       console.error('Erro ao buscar informações do cliente:', error);
     }
@@ -319,9 +319,9 @@ function ListagemClientes() {
                 <TableCell>{client.Email}</TableCell>
                 <TableCell>{client.Bairro}, {client.Cidade}</TableCell>
                 <TableCell>
-                  <IconButton color="primary" onClick={() => handleEdit(client.CPF)}>
+                  {/* <IconButton color="primary" onClick={() => handleEdit(client.CPF)}>
                     <Edit />
-                  </IconButton>
+                  </IconButton> */}
                   <IconButton color="primary" onClick={() => handleClickOpen(client)}>
                     <Delete />
                   </IconButton>

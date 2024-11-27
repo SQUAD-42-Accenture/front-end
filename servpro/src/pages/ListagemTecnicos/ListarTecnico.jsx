@@ -278,7 +278,7 @@ function ListagemTecnico() {
               <TableCell>Nome</TableCell>
               <TableCell>Telefone</TableCell>
               <TableCell>E-mail</TableCell>
-              <TableCell>Ações</TableCell>
+              {/* <TableCell>Ações</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -289,11 +289,11 @@ function ListagemTecnico() {
                 <TableCell>{tecnico.Telefone}</TableCell>
                 <TableCell>{tecnico.Email}</TableCell>
                 <TableCell>
-                  <Link to={{ pathname: "/editartecnico", state: { tecnico } }}>
+                  {/* <Link to={{ pathname: "/editartecnico", state: { tecnico } }}>
                     <IconButton color="primary">
                       <Edit />
                     </IconButton>
-                  </Link>
+                  </Link> */}
                 </TableCell>
               </TableRow>
             ))}
